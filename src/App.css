@@ -2,32 +2,35 @@
   text-align: center;
 }
 
-.bgimage {
-  background-image: url('./welcome.gif');
-  background-size: cover;
-  opacity: 0.85;
-}
-
-.welcomeHeader {
-  text-align: center;
-  color: white;
-}
-
 .extend {
-  position: fixed;
-  padding: 0;
-  margin: 0;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.tint {
-    background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .logo {
   height: 80px;
   width: 80px;
 }
+
+.item {
+  font-size: large;
+}
+
+/* .bgimage {
+background-image: url('./images/nets.gif');
+background-size: auto;
+opacity: 0.85;
+} */
+
+/* .welcomeHeader {
+text-align: center;
+color: white;
+} */
+
+
+/* .tint {
+background-color: rgba(0, 0, 0, 0.5);
+} */
