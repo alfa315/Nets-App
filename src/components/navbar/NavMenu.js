@@ -8,7 +8,7 @@ export default class NavMenu extends Component {
   render() {
     return (
       <Segment inverted>
-        <Menu inverted secondary massive>
+        <Menu inverted secondary>
           <Link to='/' >
             <img className='logo' src={logo} alt='Brooklyn Nets'/>
           </Link>
