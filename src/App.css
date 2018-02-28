@@ -1,3 +1,28 @@
 .App {
   text-align: center;
 }
+
+.bgimage {
+  background-image: url('./welcome.gif');
+  background-size: cover;
+  opacity: 0.85;
+}
+
+.welcomeHeader {
+  text-align: center;
+  color: white;
+}
+
+.extend {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tint {
+    background-color: rgba(0, 0, 0, 0.5);
+}
