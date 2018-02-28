@@ -26,3 +26,8 @@
 .tint {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.logo {
+  height: 80px;
+  width: 80px;
+}
