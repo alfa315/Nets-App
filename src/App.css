@@ -19,6 +19,22 @@
   font-size: large;
 }
 
+.centered {
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+   margin-right: 250px;
+}
+
 /* .bgimage {
 background-image: url('./images/nets.gif');
 background-size: auto;

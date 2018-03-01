@@ -1,5 +1,6 @@
 import React from 'react'
 import NavMenu from '../navbar/NavMenu.js'
+import PlayerStats from './PlayerStats.js'
 
 export default class PlayerProfile extends React.Component {
 
@@ -9,7 +10,7 @@ export default class PlayerProfile extends React.Component {
     playerStats: []
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchPlayerBio()
     this.fetchPlayerStats()
   }
@@ -33,10 +34,11 @@ export default class PlayerProfile extends React.Component {
   render () {
     console.log(this.state)
     return (
-      <div>
+      <div className='profileContainer'>
         <NavMenu />
-        <h1>Individual Player Profile will be here!</h1>
-        <img src ={`https://nba-players.herokuapp.com/players/${this.state.playerBio.lastName}/${this.state.playerBio.firstName}`} alt="Not Available" />
+        <img className='centered' src={`https://nba-players.herokuapp.com/players/${this.state.playerBio.lastName}/${this.state.playerBio.firstName}`} alt="Not Available" />
+        <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName}</h1>
+        <PlayerStats numbers={this.state.playerStats}/>
       </div>
     )
   }
