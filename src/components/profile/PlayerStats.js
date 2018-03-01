@@ -1,18 +1,13 @@
 import React from 'react'
-import { Tab, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import MainLoader from '../loaders/MainLoader.js'
+import { Tab } from 'semantic-ui-react'
 
 
 
 const PlayerStats = (props) => {
   if(props.numbers.length === 0 || props.numbers === undefined) {
     return (
-      <div className='ui-segment'>
-        <Segment>
-          <Dimmer active>
-            <Loader size='huge' active>Loading...</Loader>
-          </Dimmer>
-        </Segment>
-      </div>
+      <MainLoader />
     )
   } else {
     const panes = [
@@ -58,7 +53,7 @@ const PlayerStats = (props) => {
         </div>
       </Tab.Pane> },
 
-      { menuItem: 'Post Season', render: () => <Tab.Pane>
+      { menuItem: 'Player Comparison', render: () => <Tab.Pane>
         <div className="left">
           <h3>Points Per Game:</h3> <p>{props.numbers.stats.latest.ppg}</p>
           <h3>Rebounds Per Game:</h3> <p>{props.numbers.stats.latest.rpg}</p>
