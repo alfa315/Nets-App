@@ -4,7 +4,7 @@ import PlayerRow from './PlayerRow.js'
 export default class RosterTable extends React.Component {
 
   render() {
-    let player = this.props.playerBios.map((bio, idx) => <PlayerRow bio={bio} key={idx}/>)
+    let player = this.props.playerBios.map((bio, idx) => <PlayerRow bio={bio} id={bio.personId} key={idx}/>)
     return (
       <div>
         <h1>2017-2018 Brooklyn Nets Roster</h1>
