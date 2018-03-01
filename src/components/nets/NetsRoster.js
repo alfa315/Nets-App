@@ -42,7 +42,6 @@ class NetsRoster extends Component {
     return (
       <div className='currentRoster'>
         <NavMenu />
-        <h1>This will be the current Nets Roster</h1>
         <RosterTable
           playerIds={this.state.playerIds}
           playerBios={this.state.playerBios}
