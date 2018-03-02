@@ -1,6 +1,6 @@
 import React from 'react'
 import MainLoader from '../loaders/MainLoader.js'
-import { Tab } from 'semantic-ui-react'
+import { Tab, Dropdown, Button } from 'semantic-ui-react'
 
 
 
@@ -10,6 +10,11 @@ const PlayerStats = (props) => {
       <MainLoader />
     )
   } else {
+    let list = []
+    for (let i = 0; i < props.allPlayers.length; i++) {
+      list.push({key: props.allPlayers[i].personId, value: props.allPlayers[i].personId, text: props.allPlayers[i].firstName + " " +  props.allPlayers[i].lastName })
+    }
+
     const panes = [
       { menuItem: 'Current Season', render: () => <Tab.Pane>
         <div className="left">
@@ -55,15 +60,8 @@ const PlayerStats = (props) => {
 
       { menuItem: 'Player Comparison', render: () => <Tab.Pane>
         <div className="left">
-          <h3>Points Per Game:</h3> <p>{props.numbers.stats.latest.ppg}</p>
-          <h3>Rebounds Per Game:</h3> <p>{props.numbers.stats.latest.rpg}</p>
-          <h3>Assists Per Game:</h3> <p>{props.numbers.stats.latest.apg}</p>
-        </div>
-
-        <div className="right">
-          <h3>Field Goal Percentage:</h3> <p>{((props.numbers.stats.latest.fgm/props.numbers.stats.latest.fga)*100).toFixed(1)}%</p>
-          <h3>Three Point Field Goal Percentage:</h3> <p>{((props.numbers.stats.latest.tpm/props.numbers.stats.latest.tpa)*100).toFixed(1)}%</p>
-          <h3>Free Throw Percentage:</h3> <p>{((props.numbers.stats.latest.ftm/props.numbers.stats.latest.fta)*100).toFixed(1)}%</p>
+          <Dropdown onChange={props.handleChange} placeholder='Select Player' fluid search selection options={list} />
+          <Button onClick={props.handleClick}>Compare Players</Button>
         </div>
       </Tab.Pane> },
     ]

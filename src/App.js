@@ -6,6 +6,7 @@ import HomePage from './components/home/HomePage.js'
 import NetsRoster from './components/nets/NetsRoster.js'
 import PlayerProfile from './components/profile/PlayerProfile.js'
 import SearchResults from './components/search/SearchResults.js'
+import ComparePlayer from './components/comparison/ComparePlayer.js'
 
 class App extends Component {
   render() {
@@ -30,14 +31,12 @@ class App extends Component {
         <Route path ='/search/:id' render ={() =>
           <SearchResults />}
         />
+        <Route path ='/comp/:id/:id' render ={() =>
+          <ComparePlayer />}
+        />
       </div>
     )
   }
 }
 
 export default App;
-
-
-// <Route path ='/search/:id/:id' render ={() =>
-//   <SearchResults />}
-// />

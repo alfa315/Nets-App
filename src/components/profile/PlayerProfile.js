@@ -9,12 +9,15 @@ export default class PlayerProfile extends React.Component {
   state = {
     currentId: window.location.pathname.slice(6),
     playerBio: [],
-    playerStats: []
+    playerStats: [],
+    allPlayers: [],
+    compPlayer: ""
   }
 
   componentWillMount() {
     this.fetchPlayerBio()
     this.fetchPlayerStats()
+    this.fetchAllPlayers()
   }
 
   fetchPlayerBio = () => {
@@ -33,7 +36,26 @@ export default class PlayerProfile extends React.Component {
     }))
   }
 
+  fetchAllPlayers = () => {
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    .then(res => res.json())
+    .then(data => this.setState({
+      allPlayers: data.league.standard
+    }))
+  }
+
+  handleChange = (event, data) => {
+    this.setState({
+      compPlayer: data.value
+    })
+  }
+
+  handleClick = (event) => {
+    window.location.href=`http://localhost:3000/comp/${this.state.currentId}/${this.state.compPlayer}`
+  }
+
   render () {
+    console.log(this.state)
     if(this.state.playerBio.length === 0 || this.state.playerBio === undefined) {
       return (
         <MainLoader />
@@ -46,7 +68,11 @@ export default class PlayerProfile extends React.Component {
             <NavMenu />
             <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not Available" />
             <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName}</h1>
-            <PlayerStats numbers={this.state.playerStats}/>
+            <PlayerStats
+              numbers={this.state.playerStats} allPlayers={this.state.allPlayers}
+              handleChange={this.handleChange}
+              handleClick={this.handleClick}
+            />
           </div>
         )
     }
