@@ -13,7 +13,7 @@ export default class ResultsList extends React.Component {
     } else {
       let player = this.props.results.map((bio, idx) => <ResultsItem results={bio} teams={this.props.teams} id={bio.personId} key={idx}/>)
       return(
-        <div>
+        <div className='searchList'>
           <List>
             {player}
           </List>

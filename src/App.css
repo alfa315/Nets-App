@@ -35,6 +35,20 @@
    margin-right: 250px;
 }
 
+.searchContent {
+  margin: 55px 0;
+  font-size: 120%;
+}
+
+.searchItem {
+  margin: 40px 0;
+}
+
+.searchList {
+  float: left;
+  position: relative;
+  left: 37%;
+}
 /* .bgimage {
 background-image: url('./images/nets.gif');
 background-size: auto;

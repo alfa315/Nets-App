@@ -23,13 +23,10 @@ export default class NavMenu extends Component {
     }
   }
 
-  // Make sure to add blank search results ability
-
   handleClick = (event) => {
     event.preventDefault()
     window.location.replace(`http://localhost:3000/search/${this.state.searchValue.split(" ").join("-")}`)
   }
-
 
   render() {
     return (
@@ -66,6 +63,3 @@ export default class NavMenu extends Component {
     )
   }
 }
-
-
-// I should move the search box into its own component, then link search enter and click to search results page, which will then lead back to player profile for each result searched for.
