@@ -3,8 +3,8 @@ import { List, Image } from 'semantic-ui-react'
 
 const ResultsItem = (props) => {
 
-  let lastName = props.results.lastName.replace(/\./g,'').replace(/\'/g,'')
-  let firstName = props.results.firstName.replace(/\./g,'').replace(/\'/g,'')
+  let lastName = props.results.lastName.replace(/[.']/g,'')
+  let firstName = props.results.firstName.replace(/[.']/g,'')
 
   let team = props.teams.find(o => o.teamId === props.results.teamId)
 

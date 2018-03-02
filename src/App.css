@@ -49,6 +49,11 @@
   position: relative;
   left: 37%;
 }
+
+.medium {
+  height: 60%;
+  width: 60%;
+}
 /* .bgimage {
 background-image: url('./images/nets.gif');
 background-size: auto;

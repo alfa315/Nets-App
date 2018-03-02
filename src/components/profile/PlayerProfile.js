@@ -61,8 +61,8 @@ export default class PlayerProfile extends React.Component {
         <MainLoader />
       )
     } else {
-        let lastName = this.state.playerBio.lastName.replace(/\./g,'').replace(/\'/g,'')
-        let firstName = this.state.playerBio.firstName.replace(/\./g,'').replace(/\'/g,'')
+        let lastName = this.state.playerBio.lastName.replace(/[.']/g,'')
+        let firstName = this.state.playerBio.firstName.replace(/[.']/g,'')
         return (
           <div className='profileContainer'>
             <NavMenu />
