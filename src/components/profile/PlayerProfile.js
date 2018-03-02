@@ -51,7 +51,11 @@ export default class PlayerProfile extends React.Component {
   }
 
   handleClick = (event) => {
-    window.location.href=`http://localhost:3000/comp/${this.state.currentId}/${this.state.compPlayer}`
+    if (this.state.compPlayer.length === 0) {
+      window.location.reload()
+    } else {
+      window.location.href=`http://localhost:3000/comp/${this.state.currentId}/${this.state.compPlayer}`
+    }
   }
 
   render () {
