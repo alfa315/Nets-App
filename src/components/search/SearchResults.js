@@ -1,14 +1,17 @@
 import React from 'react'
 import NavMenu from '../navbar/NavMenu.js'
+import ResultsList from './ResultsList.js'
 
 export default class SearchResults extends React.Component {
   state = {
     searchTerms: window.location.pathname.slice(8).split("/"),
-    results: []
+    results: [],
+    teams: []
   }
 
   componentWillMount() {
     this.fetchPlayers()
+    this.fetchTeams()
   }
 
   fetchPlayers = () => {
@@ -21,12 +24,23 @@ export default class SearchResults extends React.Component {
     }})
   }
 
+  fetchTeams = () => {
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams.json")
+     .then(res => res.json())
+     .then(data => this.setState({
+       teams: data.league.standard
+     }))
+  }
+
   render() {
     console.log(this.state)
     return(
       <div>
         <NavMenu />
-        <h1>Search Results Will Show Up Here</h1>
+        <ResultsList
+          results={this.state.results}
+          teams={this.state.teams}
+        />
       </div>
     )
   }
