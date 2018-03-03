@@ -13,7 +13,9 @@ export default class PlayerProfile extends React.Component {
     playerStats: [],
     allPlayers: [],
     compPlayer: "",
-    lineData: []
+    lineData: [],
+    lineOptions: [{key: "ppg", value: "Points Per Game", text: "Points Per Game"}, {key: "rpg", value: "Rebounds Per Game", text: "Rebounds Per Game"}, {key: "apg", value: "Assists Per Game", text: "Assists Per Game"}],
+    chartType: "ppg"
   }
 
   componentWillMount() {
@@ -35,7 +37,7 @@ export default class PlayerProfile extends React.Component {
     .then(res => res.json())
     .then(data => this.setState({
       playerStats: data.league.standard,
-      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total.ppg)
+      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`])
     }))
   }
 
@@ -51,6 +53,22 @@ export default class PlayerProfile extends React.Component {
     this.setState({
       compPlayer: data.value
     })
+  }
+
+  handleDropDown = (event, data) => {
+    if (data.value === "Points Per Game") {
+      this.setState({
+        chartType: "ppg"
+      })
+    } else if (data.value === "Rebounds Per Game") {
+      this.setState({
+        chartType: "rpg"
+      })
+    } else if (data.value === "Assists Per Game") {
+      this.setState({
+        chartType: "apg"
+      })
+    }
   }
 
   handleClick = (event) => {
@@ -82,9 +100,12 @@ export default class PlayerProfile extends React.Component {
             />
             <LineVisual
               data={this.state.lineData}
+              options={this.state.lineOptions}
+              handleChange={this.handleDropDown}
             />
           </div>
         )
+
     }
   }
 }
