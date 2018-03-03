@@ -8,13 +8,15 @@ export default class ComparePlayer extends React.Component {
     playerIds: window.location.pathname.slice(6).split("/"),
     playerOneStats: [],
     playerTwoStats: [],
-    playerBios: []
+    playerOneBio: {},
+    playerTwoBio: {}
   }
 
   componentWillMount() {
     this.fetchPlayerOneStats()
     this.fetchPlayerTwoStats()
-    this.fetchPlayerBio()
+    this.fetchPlayerOneBio()
+    this.fetchPlayerTwoBio()
   }
 
   fetchPlayerOneStats = () => {
@@ -33,11 +35,19 @@ export default class ComparePlayer extends React.Component {
     }))
   }
 
-  fetchPlayerBio = () => {
+  fetchPlayerOneBio = () => {
     fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
     .then(res => res.json())
     .then(data => this.setState({
-      playerBios: data.league.standard.filter(o => o.personId === this.state.playerIds[0] || o.personId === this.state.playerIds[1])
+      playerOneBio: data.league.standard.filter(o => o.personId === this.state.playerIds[0])
+    }))
+  }
+
+  fetchPlayerTwoBio = () => {
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    .then(res => res.json())
+    .then(data => this.setState({
+      playerTwoBio: data.league.standard.filter(o => o.personId === this.state.playerIds[1])
     }))
   }
 
@@ -49,7 +59,8 @@ export default class ComparePlayer extends React.Component {
         <StatComps
           pOne={this.state.playerOneStats}
           pTwo={this.state.playerTwoStats}
-          bios={this.state.playerBios}
+          p1Bio={this.state.playerOneBio[0]}
+          p2Bio={this.state.playerTwoBio[0]}
         />
       </div>
     )

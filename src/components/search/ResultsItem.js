@@ -4,7 +4,7 @@ import { List, Image } from 'semantic-ui-react'
 
 const ResultsItem = (props) => {
 
-  if(props.results.length === 0 || props.results === undefined) {
+  if(props.results.length === 0 || props.results === undefined || props.teams.length === 0 || props.teams === undefined) {
     return (
       <MainLoader />
     )
