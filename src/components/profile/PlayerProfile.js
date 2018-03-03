@@ -82,3 +82,13 @@ export default class PlayerProfile extends React.Component {
     }
   }
 }
+
+
+
+// fetch(`http://data.nba.net/10s//prod/v1/2017/players/201960_profile.json`)
+//     .then(res => res.json())
+//     .then(data => console.log(data.league.standard.stats.regularSeason.season.map(o => o.total)))
+
+// fetch(`http://data.nba.net/10s//prod/v1/2017/players/201960_profile.json`)
+//     .then(res => res.json())
+//     .then(data => console.log(data.league.standard.stats.regularSeason.season.map(o => o.seasonYear)))
