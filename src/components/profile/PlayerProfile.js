@@ -2,6 +2,7 @@ import React from 'react'
 import NavMenu from '../navbar/NavMenu.js'
 import PlayerStats from './PlayerStats.js'
 import MainLoader from '../loaders/MainLoader.js'
+import LineVisual from './LineVisual.js'
 
 
 export default class PlayerProfile extends React.Component {
@@ -11,7 +12,8 @@ export default class PlayerProfile extends React.Component {
     playerBio: [],
     playerStats: [],
     allPlayers: [],
-    compPlayer: ""
+    compPlayer: "",
+    lineData: []
   }
 
   componentWillMount() {
@@ -32,7 +34,8 @@ export default class PlayerProfile extends React.Component {
     fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.currentId}_profile.json`)
     .then(res => res.json())
     .then(data => this.setState({
-      playerStats: data.league.standard
+      playerStats: data.league.standard,
+      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total.ppg)
     }))
   }
 
@@ -77,18 +80,11 @@ export default class PlayerProfile extends React.Component {
               handleChange={this.handleChange}
               handleClick={this.handleClick}
             />
+            <LineVisual
+              data={this.state.lineData}
+            />
           </div>
         )
     }
   }
 }
-
-
-
-// fetch(`http://data.nba.net/10s//prod/v1/2017/players/201960_profile.json`)
-//     .then(res => res.json())
-//     .then(data => console.log(data.league.standard.stats.regularSeason.season.map(o => o.total)))
-
-// fetch(`http://data.nba.net/10s//prod/v1/2017/players/201960_profile.json`)
-//     .then(res => res.json())
-//     .then(data => console.log(data.league.standard.stats.regularSeason.season.map(o => o.seasonYear)))
