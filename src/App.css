@@ -74,6 +74,12 @@
   margin-bottom: 200px;
 }
 
+.compareHeader {
+  text-align: center;
+  border-style: solid;
+  border-width: thick;
+}
+
 /* .bgimage {
 background-image: url('./images/nets.gif');
 background-size: auto;

@@ -9,7 +9,8 @@ export default class ComparePlayer extends React.Component {
     playerOneStats: [],
     playerTwoStats: [],
     playerOneBio: {},
-    playerTwoBio: {}
+    playerTwoBio: {},
+    careerOrSeason: "career"
   }
 
   componentWillMount() {
@@ -51,6 +52,18 @@ export default class ComparePlayer extends React.Component {
     }))
   }
 
+  handleChange = (event) => {
+    if(this.state.careerOrSeason === "career") {
+      this.setState({
+        careerOrSeason: "season"
+      })
+    } else if (this.state.careerOrSeason === "season") {
+      this.setState({
+        careerOrSeason: "career"
+      })
+    }
+  }
+
   render() {
     console.log(this.state)
     return(
@@ -61,6 +74,8 @@ export default class ComparePlayer extends React.Component {
           pTwo={this.state.playerTwoStats}
           p1Bio={this.state.playerOneBio[0]}
           p2Bio={this.state.playerTwoBio[0]}
+          toggle={this.state.careerOrSeason}
+          handleChange={this.handleChange}
         />
       </div>
     )
