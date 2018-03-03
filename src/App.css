@@ -32,7 +32,6 @@
 
 .right {
   float: right;
-   margin-right: 250px;
 }
 
 .searchContent {
@@ -54,6 +53,27 @@
   height: 60%;
   width: 60%;
 }
+
+.ui.celled.collapsing.very.basic.table {
+  margin: 0 auto;
+}
+
+.margLeft {
+  margin-left: 15%;
+}
+
+.margRight {
+  margin-right: 15%;
+}
+
+.ui.button.compButton {
+  margin-top: 20px;
+}
+
+.bottomMarg {
+  margin-bottom: 200px;
+}
+
 /* .bgimage {
 background-image: url('./images/nets.gif');
 background-size: auto;

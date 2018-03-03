@@ -25,7 +25,7 @@ const PlayerStats = (props) => {
           <h3>Blocks Per Game:</h3> <p>{props.numbers.stats.latest.bpg}</p>
         </div>
 
-        <div className="right">
+        <div className="right margRight">
           <h3>Field Goal Percentage:</h3> <p>{((props.numbers.stats.latest.fgm/props.numbers.stats.latest.fga)*100).toFixed(1)}%</p>
           <h3>Three Point Field Goal Percentage:</h3> <p>{((props.numbers.stats.latest.tpm/props.numbers.stats.latest.tpa)*100).toFixed(1)}%</p>
           <h3>Free Throw Percentage:</h3> <p>{((props.numbers.stats.latest.ftm/props.numbers.stats.latest.fta)*100).toFixed(1)}%</p>
@@ -47,7 +47,7 @@ const PlayerStats = (props) => {
           <p>{props.numbers.stats.careerSummary.bpg}</p>
         </div>
 
-        <div className="right">
+        <div className="right margRight">
           <h3>Field Goal Percentage:</h3> <p>{((props.numbers.stats.careerSummary.fgm/props.numbers.stats.careerSummary.fga)*100).toFixed(1)}%</p>
           <h3>Three Point Field Goal Percentage:</h3> <p>{((props.numbers.stats.careerSummary.tpm/props.numbers.stats.careerSummary.tpa)*100).toFixed(1)}%</p>
           <h3>Free Throw Percentage:</h3> <p>{((props.numbers.stats.careerSummary.ftm/props.numbers.stats.careerSummary.fta)*100).toFixed(1)}%</p>
@@ -59,17 +59,19 @@ const PlayerStats = (props) => {
       </Tab.Pane> },
 
       { menuItem: 'Player Comparison', render: () => <Tab.Pane>
-        <div className="left">
-          <Dropdown onChange={props.handleChange} placeholder='Select Player' fluid search selection options={list} />
-          <Button onClick={props.handleClick}>Compare Players</Button>
+        <div className="centered">
+          <h1>Please Select Another Player to Compare</h1>
+          <Dropdown onChange={props.handleChange} placeholder='Select Player'  search selection options={list} />
+          <br></br>
+          <Button className='compButton' onClick={props.handleClick}>Compare Players</Button>
         </div>
       </Tab.Pane> },
     ]
     return (
-      <div>
+      <div className='bottomMarg'>
         <div>
           <h1>Player Statistics</h1>
-          <Tab menu={{ fluid: true, vertical: true, tabular: 'right' }} panes={panes} />
+          <Tab menu={{ fluid: true, vertical: true, tabular: 'right margRight' }} panes={panes} />
         </div>
       </div>
     )
