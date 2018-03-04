@@ -9,6 +9,7 @@ import SearchResults from './components/search/SearchResults.js'
 import ComparePlayer from './components/comparison/ComparePlayer.js'
 
 class App extends Component {
+
   render() {
     return (
       <div>
