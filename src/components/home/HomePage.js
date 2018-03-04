@@ -35,10 +35,12 @@ class HomePage extends Component {
     return (
       <div className='homepage'>
         <NavMenu />
+        <h1 className='centered xxl'>Welcome to Nothing but Nets!</h1>
+        <hr></hr>
         <Scoreboard
           games={this.state.todaysGames}
         />
-        <h1>This will be the homepage</h1>
+        <hr></hr>
       </div>
     )
   }

@@ -105,6 +105,19 @@ hr {
   border-style: solid;
 }
 
+.scoreGroup {
+  margin-bottom: 30px;
+}
+
+.xxl {
+  font-size: 500%;
+}
+
+.extra.content.cardBtm {
+  font-size: xx-small;
+  color: black;
+}
+
 /* .bgimage {
 background-image: url('./images/nets.gif');
 background-size: auto;

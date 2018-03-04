@@ -4,11 +4,13 @@ import { Card } from 'semantic-ui-react'
 
 const Scoreboard = (props) => {
   return (
-    <Card.Group>
-     <GameCard
-      games={props.games}
-     />
-    </Card.Group>
+    <div className='scoreGroup'>
+      <Card.Group>
+       <GameCard
+        games={props.games}
+       />
+      </Card.Group>
+    </div>
   )
 }
 
