@@ -7,8 +7,9 @@ export default class RosterTable extends React.Component {
     let player = this.props.playerBios.map((bio, idx) => <PlayerRow bio={bio} id={bio.personId} key={idx}/>)
     return (
       <div>
-        <h1>2017-2018 Brooklyn Nets Roster</h1>
-        <table className="ui inverted celled padded table">
+        <h1 className='centered'>2017-2018 Brooklyn Nets Roster</h1>
+        <hr></hr>
+        <table className="ui inverted striped celled collapsing padded table">
           <thead className='headers'>
             <tr>
               <th className='center aligned collapsing'>

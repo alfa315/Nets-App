@@ -18,7 +18,7 @@ const StatComps = (props) => {
             <Radio value={props.toggle} onChange={props.handleChange} toggle />
           </Form.Field>
         </Form>
-        <div className='left centered margLeft'>
+        <div className='left centered margLeft bottomMarg'>
           <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'')}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
           <h1>{props.p1Bio.firstName} {props.p1Bio.lastName}</h1>
           <Table basic='very' celled collapsing>
@@ -333,7 +333,7 @@ const StatComps = (props) => {
             <Radio value={props.toggle} onChange={props.handleChange} toggle />
           </Form.Field>
         </Form>
-        <div className='left centered margLeft'>
+        <div className='left centered margLeft bottomMarg'>
           <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'')}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
           <h1>{props.p1Bio.firstName} {props.p1Bio.lastName}</h1>
           <Table basic='very' celled collapsing>

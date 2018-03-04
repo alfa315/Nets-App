@@ -18,8 +18,14 @@ export default class PlayerProfile extends React.Component {
     lineOptions: [
       {key: "ppg", value: "ppg", text: "Points Per Game"},
       {key: "rpg", value: "rpg", text: "Rebounds Per Game"},
-      {key: "apg", value: "apg", text: "Assists Per Game"}],
-    chartType: "ppg"
+      {key: "apg", value: "apg", text: "Assists Per Game"},
+      {key: "fgp", value: "fgp", text: "Field Goal Percentage"},
+      {key: "tpp", value: "tpp", text: "Three Point Percentage"},
+      {key: "ftp", value: "ftp", text: "Free Throw Percentage"},
+      {key: "mpg", value: "mpg", text: "Minutes Per Game"},
+      {key: "gamesPlayed", value: "gamesPlayed", text: "Games Played"}],
+    chartType: "ppg",
+    chartName: "Points Per Game"
   }
 
   componentWillMount() {
@@ -62,15 +68,17 @@ export default class PlayerProfile extends React.Component {
 
   handleDropDown = (event, data) => {
     this.setState({
-      chartType: data.value
+      chartType: data.value,
+      chartName: (data.options.find(o => o.value === data.value)).text
     })
 
     fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.currentId}_profile.json`)
-    .then(res => res.json())
-    .then(data => this.setState({
-      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`]),
-      yearData: data.league.standard.stats.regularSeason.season.map(o => o.seasonYear)
-    }))
+      .then(res => res.json())
+      .then(data => this.setState({
+        lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`]),
+        yearData: data.league.standard.stats.regularSeason.season.map(o => o.seasonYear)
+      })
+    )
   }
 
   handleClick = (event) => {
@@ -90,21 +98,27 @@ export default class PlayerProfile extends React.Component {
     } else {
         let lastName = this.state.playerBio.lastName.replace(/[.']/g,'')
         let firstName = this.state.playerBio.firstName.replace(/[.']/g,'')
+
         return (
           <div className='profileContainer'>
             <NavMenu />
+
             <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not Available" />
+
             <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName}</h1>
             <PlayerStats
               numbers={this.state.playerStats} allPlayers={this.state.allPlayers}
               handleChange={this.handleChange}
               handleClick={this.handleClick}
             />
+
+
             <LineVisual
               data={this.state.lineData}
               years={this.state.yearData}
               options={this.state.lineOptions}
               handleChange={this.handleDropDown}
+              chartTitle={this.state.chartName}
             />
           </div>
         )
