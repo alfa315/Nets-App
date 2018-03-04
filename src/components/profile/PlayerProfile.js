@@ -14,7 +14,11 @@ export default class PlayerProfile extends React.Component {
     allPlayers: [],
     compPlayer: "",
     lineData: [],
-    lineOptions: [{key: "ppg", value: "Points Per Game", text: "Points Per Game"}, {key: "rpg", value: "Rebounds Per Game", text: "Rebounds Per Game"}, {key: "apg", value: "Assists Per Game", text: "Assists Per Game"}],
+    yearData: [],
+    lineOptions: [
+      {key: "ppg", value: "ppg", text: "Points Per Game"},
+      {key: "rpg", value: "rpg", text: "Rebounds Per Game"},
+      {key: "apg", value: "apg", text: "Assists Per Game"}],
     chartType: "ppg"
   }
 
@@ -37,7 +41,8 @@ export default class PlayerProfile extends React.Component {
     .then(res => res.json())
     .then(data => this.setState({
       playerStats: data.league.standard,
-      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`])
+      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`]),
+      yearData: data.league.standard.stats.regularSeason.season.map(o => o.seasonYear)
     }))
   }
 
@@ -56,19 +61,16 @@ export default class PlayerProfile extends React.Component {
   }
 
   handleDropDown = (event, data) => {
-    if (data.value === "Points Per Game") {
-      this.setState({
-        chartType: "ppg"
-      })
-    } else if (data.value === "Rebounds Per Game") {
-      this.setState({
-        chartType: "rpg"
-      })
-    } else if (data.value === "Assists Per Game") {
-      this.setState({
-        chartType: "apg"
-      })
-    }
+    this.setState({
+      chartType: data.value
+    })
+
+    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.currentId}_profile.json`)
+    .then(res => res.json())
+    .then(data => this.setState({
+      lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`]),
+      yearData: data.league.standard.stats.regularSeason.season.map(o => o.seasonYear)
+    }))
   }
 
   handleClick = (event) => {
@@ -100,6 +102,7 @@ export default class PlayerProfile extends React.Component {
             />
             <LineVisual
               data={this.state.lineData}
+              years={this.state.yearData}
               options={this.state.lineOptions}
               handleChange={this.handleDropDown}
             />
