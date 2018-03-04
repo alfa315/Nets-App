@@ -115,7 +115,12 @@ hr {
 
 .extra.content.cardBtm {
   font-size: xx-small;
-  color: black;
+  color: white;
+  background-color: black;
+}
+
+b {
+  font-weight: 900;
 }
 
 /* .bgimage {
