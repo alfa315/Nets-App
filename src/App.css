@@ -148,6 +148,14 @@ b {
   margin-right: 10%;
 }
 
+.large {
+  font-size: 130%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 
 
 /* .bgimage {

@@ -14,6 +14,10 @@ const PlayerStats = (props) => {
     for (let i = 0; i < props.allPlayers.length; i++) {
       list.push({key: props.allPlayers[i].personId, value: props.allPlayers[i].personId, text: props.allPlayers[i].firstName + " " +  props.allPlayers[i].lastName })
     }
+    let today = new Date()
+    let dd = parseInt(today.getDate(), 10)
+    let mm = parseInt(today.getMonth()+1, 10)
+    let yyyy = parseInt(today.getFullYear(), 10)
 
     const panes = [
       { menuItem: 'Current Season', render: () => <Tab.Pane>
@@ -58,6 +62,31 @@ const PlayerStats = (props) => {
         </div>
       </Tab.Pane> },
 
+      { menuItem: 'Personal Information', render: () => <Tab.Pane>
+        <div className="left large bold">
+          <p>Drafted:</p>
+          <p>Prior Affiliation:</p>
+          <p>Height:</p>
+          <p>Weight:</p>
+          <p>Age:</p>
+          <p>Years Experience:</p>
+        </div>
+        <div className="centered large">
+          <p>{props.bio.draft.pickNum.length === 0 ? "Undrafted" : "Round #" + props.bio.draft.roundNum + ", Pick #" + props.bio.draft.pickNum + " (" + props.bio.draft.seasonYear + ")"}</p>
+          <p>{props.bio.lastAffiliation}</p>
+          <p>{props.bio.heightFeet} - {props.bio.heightInches}</p>
+          <p>{props.bio.weightPounds} lbs</p>
+          <p> {mm > parseInt(props.bio.dateOfBirthUTC.slice(5,7), 10) ?
+            yyyy - parseInt(props.bio.dateOfBirthUTC.slice(0,4), 10) :
+            mm === parseInt(props.bio.dateOfBirthUTC.slice(5,7), 10) &&
+            dd > parseInt(props.bio.dateOfBirthUTC.slice(8,10), 10) ?
+            (yyyy - parseInt(props.bio.dateOfBirthUTC.slice(0,4), 10)) :
+            yyyy - parseInt(props.bio.dateOfBirthUTC.slice(0,4), 10) - 1}
+          </p>
+          <p>{parseInt(props.bio.yearsPro, 10) === 0 ? "Rookie" : props.bio.yearsPro}</p>
+        </div>
+      </Tab.Pane> },
+
       { menuItem: 'Player Comparison', render: () => <Tab.Pane>
         <div className="centered">
           <h1>Please Select Another Player to Compare</h1>
@@ -65,7 +94,7 @@ const PlayerStats = (props) => {
           <br></br>
           <Button className='compButton' onClick={props.handleClick}>Compare Players</Button>
         </div>
-      </Tab.Pane> },
+      </Tab.Pane> }
     ]
     return (
       <div className='bottomMarg'>

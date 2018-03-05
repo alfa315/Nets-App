@@ -10,6 +10,7 @@ export default class PlayerProfile extends React.Component {
   state = {
     currentId: window.location.pathname.slice(6),
     playerBio: [],
+    teams: [],
     playerStats: [],
     allPlayers: [],
     compPlayer: "",
@@ -32,6 +33,7 @@ export default class PlayerProfile extends React.Component {
     this.fetchPlayerBio()
     this.fetchPlayerStats()
     this.fetchAllPlayers()
+    this.fetchTeams()
   }
 
   fetchPlayerBio = () => {
@@ -58,6 +60,14 @@ export default class PlayerProfile extends React.Component {
     .then(data => this.setState({
       allPlayers: data.league.standard
     }))
+  }
+
+  fetchTeams = () => {
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams.json")
+     .then(res => res.json())
+     .then(data => this.setState({
+       teams: data.league.standard
+     }))
   }
 
   handleChange = (event, data) => {
@@ -98,6 +108,8 @@ export default class PlayerProfile extends React.Component {
     } else {
         let lastName = this.state.playerBio.lastName.replace(/[.']/g,'')
         let firstName = this.state.playerBio.firstName.replace(/[.']/g,'')
+        // let teamName =
+        console.log(this.state)
 
         return (
           <div className='profileContainer'>
@@ -105,11 +117,15 @@ export default class PlayerProfile extends React.Component {
 
             <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not Available" />
 
-            <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName}</h1>
+            <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName} - #{this.state.playerBio.jersey} - {this.state.playerBio.pos}</h1>
+            <h1 className='centered'>{this.state.teams.find((o) => o.teamId === this.state.playerBio.teamId).fullName}</h1>
+
             <PlayerStats
-              numbers={this.state.playerStats} allPlayers={this.state.allPlayers}
+              numbers={this.state.playerStats}
+              allPlayers={this.state.allPlayers}
               handleChange={this.handleChange}
               handleClick={this.handleClick}
+              bio={this.state.playerBio}
             />
 
 
