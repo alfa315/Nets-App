@@ -57,7 +57,7 @@ class HomePage extends Component {
     return (
       <div className='homepage'>
         <NavMenu />
-        <h1 className='centered xxl'>Nothing But Nets!</h1>
+        <h1 className='centered xxl'>Nothing But Nets</h1>
         <hr></hr>
         <Scoreboard
           games={this.state.todaysGames}

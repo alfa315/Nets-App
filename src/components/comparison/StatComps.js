@@ -21,7 +21,7 @@ const StatComps = (props) => {
         <div className='left centered margLeft bottomMarg'>
           <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'')}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
           <h1>{props.p1Bio.firstName} {props.p1Bio.lastName}</h1>
-          <Table basic='very' celled collapsing>
+          <Table basic='very' celled collapsing striped>
             <Table.Body>
               <Table.Row>
                 <Table.Cell>
@@ -173,7 +173,7 @@ const StatComps = (props) => {
         <div className='right centered margRight'>
           <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p2Bio.lastName.replace(/[.']/g,'')}/${props.p2Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
           <h1>{props.p2Bio.firstName} {props.p2Bio.lastName}</h1>
-          <Table basic='very' celled collapsing>
+          <Table basic='very' celled collapsing striped>
             <Table.Body>
               <Table.Row>
                 <Table.Cell>
@@ -336,7 +336,7 @@ const StatComps = (props) => {
         <div className='left centered margLeft bottomMarg'>
           <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'')}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
           <h1>{props.p1Bio.firstName} {props.p1Bio.lastName}</h1>
-          <Table basic='very' celled collapsing>
+          <Table basic='very' celled collapsing striped>
             <Table.Body>
               <Table.Row>
                 <Table.Cell>
@@ -488,7 +488,7 @@ const StatComps = (props) => {
         <div className='right centered margRight'>
           <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p2Bio.lastName.replace(/[.']/g,'')}/${props.p2Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
           <h1>{props.p2Bio.firstName} {props.p2Bio.lastName}</h1>
-          <Table basic='very' celled collapsing>
+          <Table basic='very' celled collapsing striped>
             <Table.Body>
               <Table.Row>
                 <Table.Cell>

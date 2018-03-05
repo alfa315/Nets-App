@@ -12,9 +12,9 @@ const WestStandings = (props) => {
     let westRows = props.standings.west.map((team, idx) => <WestItems item={team} teamIds={props.teams} key={idx}/>)
 
     return (
-      <div className='centered left'>
+      <div className='centered left bottomMarg'>
         <h1>West Standings</h1>
-        <table  className="ui celled collapsing table">
+        <table  className="ui celled collapsing table striped">
           <thead className='headers'>
             <tr>
               <th className='center aligned collapsing'>

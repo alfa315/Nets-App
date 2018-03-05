@@ -14,7 +14,7 @@ const EastStandings = (props) => {
     return (
       <div className='centered right'>
         <h1>East Standings</h1>
-        <table  className="ui celled collapsing table">
+        <table  className="ui celled collapsing table striped">
           <thead className='headers'>
             <tr>
               <th className='center aligned collapsing'>
