@@ -8,7 +8,7 @@ import LineVisual from './LineVisual.js'
 export default class PlayerProfile extends React.Component {
 
   state = {
-    currentId: window.location.pathname.slice(6),
+    currentId: window.location.pathname.slice(8),
     playerBio: [],
     teams: [],
     playerStats: [],

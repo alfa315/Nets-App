@@ -7,6 +7,9 @@ import NetsRoster from './components/nets/NetsRoster.js'
 import PlayerProfile from './components/profile/PlayerProfile.js'
 import SearchResults from './components/search/SearchResults.js'
 import ComparePlayer from './components/comparison/ComparePlayer.js'
+import TeamStats from './components/team/TeamStats.js'
+import CapTool from './components/salaryCap/CapTool.js'
+
 
 class App extends Component {
 
@@ -17,15 +20,15 @@ class App extends Component {
           <WelcomePage
           />}
         />
-        <Route exact path='/Home' render={() =>
+        <Route exact path='/home' render={() =>
           <HomePage
           />}
         />
-        <Route exact path='/Team' render={() =>
+        <Route exact path='/roster' render={() =>
           <NetsRoster
           />}
         />
-        <Route path ='/Team/:id' render={() =>
+        <Route path ='/player/:id' render={() =>
           <PlayerProfile
           />}
         />
@@ -34,6 +37,12 @@ class App extends Component {
         />
         <Route path ='/comp/:id/:id' render ={() =>
           <ComparePlayer />}
+        />
+        <Route path ='/team_stats' render ={() =>
+          <TeamStats />}
+        />
+        <Route path ='/salary_cap' render ={() =>
+          <CapTool />}
         />
       </div>
     )

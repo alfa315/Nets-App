@@ -7,7 +7,7 @@ const PlayerRow = (props) => {
   let yyyy = parseInt(today.getFullYear(), 10)
   return (
     <tr>
-      <td><a href={`/team/${props.id}`}>{props.bio.firstName} {props.bio.lastName}</a></td>
+      <td><a href={`/player/${props.id}`}>{props.bio.firstName} {props.bio.lastName}</a></td>
       <td>{props.bio.pos}</td>
       <td>{props.bio.jersey}</td>
       <td>{props.bio.heightFeet} - {props.bio.heightInches}</td>

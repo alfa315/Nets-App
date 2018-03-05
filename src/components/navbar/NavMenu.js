@@ -43,8 +43,14 @@ export default class NavMenu extends Component {
           <Link to='/home' className="item">
             Home
           </Link>
-          <Link to='/team' className="item">
+          <Link to='/roster' className="item">
             Current Roster
+          </Link>
+          <Link to='/team_stats' className="item">
+            Team Stats
+          </Link>
+          <Link to='/salary_cap' className="item">
+            Salary Cap
           </Link>
 
           <Menu.Menu position='right'>
