@@ -9,9 +9,9 @@ const GameCard = (props) => {
     )
   } else {
     return <div className="scoreboard">
-      {props.games.map((ev) => {
+      {props.games.map((ev, idx) => {
         return (
-         <Card>
+         <Card key={idx}>
            <Card.Content>
              <Card.Description>
                {ev.statusNum === 3 && ev.vTeam.score > ev.hTeam.score ? <p><b><i>{ev.vTeam.triCode}</i></b></p> : <p>{ev.vTeam.triCode}</p>}

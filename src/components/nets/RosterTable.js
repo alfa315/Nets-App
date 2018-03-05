@@ -9,7 +9,7 @@ export default class RosterTable extends React.Component {
       <div>
         <h1 className='centered'>2017-2018 Brooklyn Nets Roster</h1>
         <hr></hr>
-        <table className="ui inverted striped celled collapsing padded table">
+        <table className="ui striped celled collapsing padded table">
           <thead className='headers'>
             <tr>
               <th className='center aligned collapsing'>

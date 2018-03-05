@@ -1,14 +1,36 @@
 import React, { Component } from 'react'
 import NavMenu from '../navbar/NavMenu.js'
 import Scoreboard from './Scoreboard.js'
+import WestStandings from './WestStandings.js'
+import EastStandings from './EastStandings.js'
 
 class HomePage extends Component {
   state = {
-    todaysGames: []
+    todaysGames: [],
+    teams: [],
+    standings: []
   }
 
   componentWillMount() {
     this.fetchGames()
+    this.fetchTeams()
+    this.fetchStandings()
+  }
+
+  fetchTeams = () => {
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams.json")
+     .then(res => res.json())
+     .then(data => this.setState({
+       teams: data.league.standard
+     }))
+  }
+
+  fetchStandings = () => {
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/current/standings_conference.json")
+     .then(res => res.json())
+     .then(data => this.setState({
+       standings: data.league.standard.conference
+     }))
   }
 
   fetchGames = () => {
@@ -35,12 +57,20 @@ class HomePage extends Component {
     return (
       <div className='homepage'>
         <NavMenu />
-        <h1 className='centered xxl'>Welcome to Nothing but Nets!</h1>
+        <h1 className='centered xxl'>Nothing But Nets!</h1>
         <hr></hr>
         <Scoreboard
           games={this.state.todaysGames}
         />
         <hr></hr>
+        <WestStandings
+          teams={this.state.teams}
+          standings={this.state.standings}
+        />
+        <EastStandings
+          teams={this.state.teams}
+          standings={this.state.standings}
+        />
       </div>
     )
   }

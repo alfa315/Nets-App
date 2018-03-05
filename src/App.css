@@ -80,10 +80,9 @@
   border-width: thick;
 }
 
-.ui.inverted.striped.celled.collapsing.padded.table {
+.ui.striped.celled.collapsing.padded.table {
   margin: auto;
   text-align: center;
-  background-color: rgb(21,21,22);
 }
 
 hr {
@@ -121,6 +120,16 @@ hr {
 
 b {
   font-weight: 900;
+}
+
+.ui.celled.collapsing.table {
+  font-size: small;
+  text-align: center;
+}
+
+.center.aligned.collapsing {
+  background-color: black;
+  color: white;
 }
 
 /* .bgimage {
