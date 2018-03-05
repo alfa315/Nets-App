@@ -161,6 +161,15 @@ b {
   height: 70px;
 }
 
+.mediumPic {
+  width: 400px;
+  height: 230px;
+}
+
+.textBlock {
+  margin-left: 300px;
+  margin-right: 300px;
+}
 
 /* .bgimage {
 background-image: url('./images/nets.gif');

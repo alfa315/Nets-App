@@ -103,7 +103,7 @@ const PlayerStats = (props) => {
         <img className='mediumLogo centered' src={require(`../../images/${teamInfo.tricode}.png`)} alt="Not  Available"/>
         <div>
           <h1>Player Statistics</h1>
-          <Tab menu={{ fluid: true, vertical: true, tabular: 'right margRight' }} panes={panes} />
+          <Tab menu={{ fluid: true, vertical: true, tabular: true, className: 'right margRight' }} panes={panes} />
         </div>
       </div>
     )

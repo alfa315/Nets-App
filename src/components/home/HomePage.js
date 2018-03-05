@@ -3,18 +3,22 @@ import NavMenu from '../navbar/NavMenu.js'
 import Scoreboard from './Scoreboard.js'
 import WestStandings from './WestStandings.js'
 import EastStandings from './EastStandings.js'
+import NewsContainer from './NewsContainer.js'
 
 class HomePage extends Component {
   state = {
     todaysGames: [],
     teams: [],
-    standings: []
+    standings: [],
+    news: [],
+    article: 0
   }
 
   componentWillMount() {
     this.fetchGames()
     this.fetchTeams()
     this.fetchStandings()
+    this.fetchNews()
   }
 
   fetchTeams = () => {
@@ -52,6 +56,31 @@ class HomePage extends Component {
     }))
   }
 
+  fetchNews = () => {
+    fetch('https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?domains=netsdaily.com&apiKey=5d636e1db94d4279805aa9acc9e68fc2')
+     .then(res => res.json())
+     .then(data => this.setState({
+       news: data.articles
+     }))
+  }
+
+  handleNextClick = (event) => {
+    if(this.state.article < this.state.news.length - 1) {
+      this.setState({
+        article: this.state.article + 1
+      })
+    }
+  }
+
+  handlePreviousClick = (event) => {
+    if(this.state.article > 0) {
+      this.setState({
+        article: this.state.article - 1
+      })
+    }
+  }
+
+
   render() {
     console.log(this.state)
     return (
@@ -63,6 +92,12 @@ class HomePage extends Component {
           games={this.state.todaysGames}
         />
         <hr></hr>
+        <NewsContainer
+          news={this.state.news}
+          num={this.state.article}
+          handleNext={this.handleNextClick}
+          handlePrevious={this.handlePreviousClick}
+        />
         <WestStandings
           teams={this.state.teams}
           standings={this.state.standings}

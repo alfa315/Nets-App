@@ -115,7 +115,7 @@ export default class PlayerProfile extends React.Component {
           <div className='profileContainer'>
             <NavMenu />
 
-            <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not  Available" onerror="this.src='../../images/noImage.jpg'"/>
+            <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not  Available"/>
 
             <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName} - #{this.state.playerBio.jersey} - {this.state.playerBio.pos}</h1>
 
