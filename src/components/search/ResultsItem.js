@@ -9,7 +9,7 @@ const ResultsItem = (props) => {
       <MainLoader />
     )
   } else {
-    let lastName = props.results.lastName.replace(/[.']/g,'')
+    let lastName = props.results.lastName.replace(/[.']/g,'').split(" ").join("_")
     let firstName = props.results.firstName.replace(/[.']/g,'')
 
     let team = props.teams.find(o => o.teamId === props.results.teamId)

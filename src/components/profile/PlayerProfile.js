@@ -106,7 +106,7 @@ export default class PlayerProfile extends React.Component {
         <MainLoader />
       )
     } else {
-        let lastName = this.state.playerBio.lastName.replace(/[.']/g,'')
+        let lastName = this.state.playerBio.lastName.replace(/[.']/g,'').split(" ").join("_")
         let firstName = this.state.playerBio.firstName.replace(/[.']/g,'')
         // let teamName =
         console.log(this.state)
@@ -115,7 +115,7 @@ export default class PlayerProfile extends React.Component {
           <div className='profileContainer'>
             <NavMenu />
 
-            <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not Available" />
+            <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not  Available" onerror="this.src='../../images/noImage.jpg'"/>
 
             <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName} - #{this.state.playerBio.jersey} - {this.state.playerBio.pos}</h1>
 
