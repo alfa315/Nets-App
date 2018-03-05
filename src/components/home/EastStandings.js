@@ -14,25 +14,28 @@ const EastStandings = (props) => {
     return (
       <div className='centered right'>
         <h1>East Standings</h1>
-        <table  className="ui celled collapsing table striped">
+        <table  className="ui celled compact table striped">
           <thead className='headers'>
             <tr>
-              <th className='center aligned collapsing'>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
                 <h3>Rank</h3>
               </th>
-              <th className='center aligned collapsing'>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+                <h3>Logo</h3>
+              </th>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
                 <h3>Team</h3>
               </th>
-              <th className='center aligned collapsing'>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
                 <h3>Win %</h3>
               </th>
-              <th className='center aligned collapsing'>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
                 <h3>Wins</h3>
               </th>
-              <th className='center aligned collapsing'>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
                 <h3>Losses</h3>
               </th>
-              <th className='center aligned collapsing'>
+              <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
                 <h3>Last Ten</h3>
               </th>
             </tr>

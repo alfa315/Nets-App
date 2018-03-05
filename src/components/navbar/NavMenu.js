@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Segment, Input, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo.png'
+import logo from '../../images/BKN.png'
 
 export default class NavMenu extends Component {
   state = {

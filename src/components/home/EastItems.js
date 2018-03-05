@@ -12,6 +12,7 @@ const EastItems = (props) => {
     return (
       <tr>
         <td>{props.item.confRank}</td>
+        <td><img className='smallLogo' src={require(`../../images/${teamName.tricode}.png`)} alt="Not  Available"/> </td>
         <td>{teamName.fullName}</td>
         <td>{props.item.winPct}</td>
         <td>{props.item.win}</td>

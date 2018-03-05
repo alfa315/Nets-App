@@ -14,12 +14,14 @@ const GameCard = (props) => {
          <Card key={idx}>
            <Card.Content>
              <Card.Description>
+                <img className='smallLogo' src={require(`../../images/${ev.vTeam.triCode}.png`)} alt="Not  Available"/>
                {ev.statusNum === 3 && ev.vTeam.score > ev.hTeam.score ? <p><b><i>{ev.vTeam.triCode}</i></b></p> : <p>{ev.vTeam.triCode}</p>}
 
                {ev.isGameActivated ? <p>{ev.vTeam.score}</p> : ev.statusNum === 3 ? <p>{ev.vTeam.score}</p> : <p>{"(" + ev.vTeam.win + "-" + ev.vTeam.loss + ")"}</p>}
 
                <p>@</p>
 
+               <img className='smallLogo' src={require(`../../images/${ev.hTeam.triCode}.png`)} alt="Not  Available"/>
                {ev.statusNum === 3 && ev.hTeam.score > ev.vTeam.score ? <p><b><i>{ev.hTeam.triCode}</i></b></p> : <p>{ev.hTeam.triCode}</p>}
 
                {ev.isGameActivated ? <p>{ev.hTeam.score}</p> : ev.statusNum === 3 ? <p>{ev.hTeam.score}</p> : <p>{"(" + ev.hTeam.win + "-" + ev.hTeam.loss + ")"}</p>}

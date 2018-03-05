@@ -96,9 +96,11 @@ const PlayerStats = (props) => {
         </div>
       </Tab.Pane> }
     ]
+    let teamInfo = props.teams.find((o) => o.teamId === props.bio.teamId)
     return (
       <div className='bottomMarg'>
-        <h1 className='centered'>{props.teams.find((o) => o.teamId === props.bio.teamId).fullName}</h1>
+        <h1 className='centered'>{teamInfo.fullName}</h1>
+        <img className='mediumLogo centered' src={require(`../../images/${teamInfo.tricode}.png`)} alt="Not  Available"/>
         <div>
           <h1>Player Statistics</h1>
           <Tab menu={{ fluid: true, vertical: true, tabular: 'right margRight' }} panes={panes} />

@@ -86,7 +86,7 @@ body {
   border-width: thick;
 }
 
-.ui.striped.celled.collapsing.padded.table {
+.ui.striped.celled.table {
   margin: auto;
   text-align: center;
 }
@@ -129,15 +129,10 @@ b {
   font-weight: 900;
 }
 
-.ui.celled.collapsing.table.striped {
+.ui.celled.compact.table.striped {
   font-size: small;
   text-align: center;
   box-shadow: 1px 5px 16px 8px grey;
-}
-
-.center.aligned.collapsing {
-  background-color: black;
-  color: white;
 }
 
 .centered.left.bottomMarg {
@@ -156,6 +151,15 @@ b {
   font-weight: bold;
 }
 
+.smallLogo {
+  width: 23px;
+  height: 23px;
+}
+
+.mediumLogo {
+  width: 65px;
+  height: 70px;
+}
 
 
 /* .bgimage {
