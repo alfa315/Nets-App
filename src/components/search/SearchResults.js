@@ -6,7 +6,8 @@ export default class SearchResults extends React.Component {
   state = {
     searchTerms: window.location.pathname.slice(8).split("-").filter(Boolean),
     results: [],
-    teams: []
+    teams: [],
+    stillSearching: true
   }
 
   componentWillMount() {
@@ -19,9 +20,18 @@ export default class SearchResults extends React.Component {
     .then(res => res.json())
     .then(data => {for(let i=0; i < this.state.searchTerms.length; i++){
       let playerSearch = data.league.standard.filter(o => o.firstName.toLowerCase() === this.state.searchTerms[i].toLowerCase() || o.lastName.toLowerCase() === this.state.searchTerms[i].toLowerCase())
-      this.setState({
-        results: this.state.results.concat(playerSearch)
-      })
+      if(playerSearch.length > 0) {
+        this.setState({
+          results: this.state.results.concat(playerSearch),
+          stillSearching: true
+        })
+      } else if(playerSearch.length === 0) {
+        this.setState({
+          results: this.state.results.concat(playerSearch),
+          stillSearching: false
+        })
+      }
+
     }})
   }
 
@@ -41,6 +51,7 @@ export default class SearchResults extends React.Component {
         <ResultsList
           results={this.state.results}
           teams={this.state.teams}
+          searching={this.state.stillSearching}
         />
       </div>
     )
