@@ -118,7 +118,7 @@ export default class PlayerProfile extends React.Component {
             <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not Available" />
 
             <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName} - #{this.state.playerBio.jersey} - {this.state.playerBio.pos}</h1>
-            <h1 className='centered'>{this.state.teams.find((o) => o.teamId === this.state.playerBio.teamId).fullName}</h1>
+
 
             <PlayerStats
               numbers={this.state.playerStats}
@@ -126,6 +126,7 @@ export default class PlayerProfile extends React.Component {
               handleChange={this.handleChange}
               handleClick={this.handleClick}
               bio={this.state.playerBio}
+              teams={this.state.teams}
             />
 
 

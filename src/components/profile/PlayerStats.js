@@ -5,7 +5,7 @@ import { Tab, Dropdown, Button } from 'semantic-ui-react'
 
 
 const PlayerStats = (props) => {
-  if(props.numbers.length === 0 || props.numbers === undefined) {
+  if(props.numbers.length === 0 || props.numbers === undefined || props.bio.length === 0 || props.bio === undefined || props.teams.length === 0 || props.teams === undefined) {
     return (
       <MainLoader />
     )
@@ -98,6 +98,7 @@ const PlayerStats = (props) => {
     ]
     return (
       <div className='bottomMarg'>
+        <h1 className='centered'>{props.teams.find((o) => o.teamId === props.bio.teamId).fullName}</h1>
         <div>
           <h1>Player Statistics</h1>
           <Tab menu={{ fluid: true, vertical: true, tabular: 'right margRight' }} panes={panes} />
