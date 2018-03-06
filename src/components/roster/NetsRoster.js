@@ -24,14 +24,14 @@ class NetsRoster extends Component {
   }
 
   fetchPlayerBios = () => {
-    for(let i = 0; i < this.state.playerIds.length; i++) {
+    this.state.playerIds.map(player =>
       fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
       .then(res => res.json())
       .then(data => this.setState({
-        playerBios: this.state.playerBios.concat(data.league.standard.find(o => o.personId === this.state.playerIds[i].personId)),
+        playerBios: this.state.playerBios.concat(data.league.standard.find(o => o.personId === player.personId)),
         updateBios: false
       }))
-    }
+    )
   }
 
   render() {

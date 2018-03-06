@@ -3,14 +3,14 @@ import React from 'react'
 const PickRow = (props) => {
   return (
     <tr>
-      <td>Name will be here</td>
-      <td>{props.player.ppg}</td>
-      <td>{props.player.rpg}</td>
-      <td>{props.player.apg}</td>
-      <td>{props.player.fgp}</td>
-      <td>{props.player.tpp}</td>
-      <td>{props.player.plusMinus}</td>
-      <td>{props.player.gamesPlayed}</td>
+      <td><a href={`/player/${props.player.pId}`}>{props.player.name}</a></td>
+      <td>{props.player.careerSummary.ppg}</td>
+      <td>{props.player.careerSummary.rpg}</td>
+      <td>{props.player.careerSummary.apg}</td>
+      <td>{props.player.careerSummary.fgp}</td>
+      <td>{props.player.careerSummary.tpp}</td>
+      <td>{props.player.careerSummary.plusMinus}</td>
+      <td>{props.player.careerSummary.gamesPlayed}</td>
     </tr>
   )
 }

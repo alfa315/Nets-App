@@ -7,11 +7,8 @@ export default class DraftTool extends React.Component {
     players: [],
     currentPick: 1,
     playerStats: [],
-    update: true,
-  }
-
-  componentWillMount() {
-    this.fetchPlayers()
+    updateStats: true,
+    updatePlayers: true
   }
 
   fetchPlayers = () => {
@@ -20,30 +17,38 @@ export default class DraftTool extends React.Component {
     .then(data => this.setState({
       players: data.league.standard.filter(o => parseInt(o.draft.pickNum, 10) === this.state.currentPick),
       playerStats: [],
-      update: true
+      updatePlayers: false,
+      updateStats: true
+
     }))
   }
 
   fetchPlayerStats = () => {
-    for(let i = 0; i < this.state.players.length; i++) {
-      fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/players/${this.state.players[i].personId}_profile.json`)
+    this.state.players.map(player =>
+      fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/players/${player.personId}_profile.json`)
       .then(res => res.json())
-      .then(data => this.setState({
-        playerStats: [...this.state.playerStats, data.league.standard.stats],
-        update: false
-      }))
-    }
+      .then(data => {let newData = data.league.standard.stats
+        newData.name = `${player.firstName} ${player.lastName}`
+        newData.pId = player.personId
+        this.setState({
+        playerStats: [...this.state.playerStats, newData],
+        updateStats: false
+      })})
+    )
   }
 
   handlePickChange = (event, data) => {
     this.setState({
-      currentPick: parseInt(data.value, 10)
+      currentPick: parseInt(data.value, 10),
+      updatePlayers: true
     })
-    this.fetchPlayers()
   }
 
   render () {
-    if (this.state.update){
+    if (this.state.updatePlayers){
+      this.fetchPlayers()
+    }
+    if (this.state.updateStats){
       this.fetchPlayerStats()
     }
     console.log(this.state)
