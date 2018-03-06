@@ -2,6 +2,8 @@ import React from 'react'
 import NavMenu from '../navbar/NavMenu.js'
 
 export default class TeamStats extends React.Component {
+
+
   render () {
     return (
       <div>
@@ -11,3 +13,6 @@ export default class TeamStats extends React.Component {
     )
   }
 }
+
+
+// Sortable roster by statistic leaders. Current salary cap situation and for the available season against projected cap. List potential targets for free agency. Maybe add last 5 games results on homepage or on team stats page.

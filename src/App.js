@@ -8,7 +8,7 @@ import PlayerProfile from './components/profile/PlayerProfile.js'
 import SearchResults from './components/search/SearchResults.js'
 import ComparePlayer from './components/comparison/ComparePlayer.js'
 import TeamStats from './components/team/TeamStats.js'
-import CapTool from './components/salaryCap/CapTool.js'
+import DraftTool from './components/draft/DraftTool.js'
 
 
 class App extends Component {
@@ -41,8 +41,8 @@ class App extends Component {
         <Route path ='/team_stats' render ={() =>
           <TeamStats />}
         />
-        <Route path ='/salary_cap' render ={() =>
-          <CapTool />}
+        <Route path ='/draft' render ={() =>
+          <DraftTool />}
         />
       </div>
     )
