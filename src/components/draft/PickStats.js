@@ -20,7 +20,7 @@ const PickStats = (props) => {
       <div className='centered'>
         <Dropdown onChange={props.handleChange} placeholder='Choose By Pick...' search selection options={options} />
 
-        <h1 className='centered'>Statistical Analysis by Pick</h1>
+        <h1 className='centered'>Statistics of Players Drafted # {props.currentPick}</h1>
         <table className="ui striped celled collapsing compact table" style={{fontSize: "medium"}}>
           <thead className='headers'>
             <tr>
