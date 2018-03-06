@@ -7,7 +7,7 @@ export default class DraftTool extends React.Component {
     players: [],
     currentPick: 1,
     playerStats: [],
-    update: true
+    update: true,
   }
 
   componentWillMount() {
@@ -15,7 +15,7 @@ export default class DraftTool extends React.Component {
   }
 
   fetchPlayers = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       players: data.league.standard.filter(o => parseInt(o.draft.pickNum, 10) === this.state.currentPick),
@@ -29,15 +29,15 @@ export default class DraftTool extends React.Component {
       fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/players/${this.state.players[i].personId}_profile.json`)
       .then(res => res.json())
       .then(data => this.setState({
-        playerStats: this.state.playerStats.concat(data.league.standard.stats),
+        playerStats: [...this.state.playerStats, data.league.standard.stats],
         update: false
       }))
     }
   }
 
-  handlePickChange = (event) => {
+  handlePickChange = (event, data) => {
     this.setState({
-      currentPick: parseInt(event.target.value, 10)
+      currentPick: parseInt(data.value, 10)
     })
     this.fetchPlayers()
   }
@@ -50,9 +50,10 @@ export default class DraftTool extends React.Component {
     return (
       <div>
         <NavMenu />
-        <h1>NBA Draft Stats</h1>
+        <h1 className='centered'>NBA Draft Stats</h1>
         <PickStats
           handleChange = {this.handlePickChange}
+          playerStats = {this.state.playerStats}
           players = {this.state.players}
         />
       </div>

@@ -1,9 +1,52 @@
 import React from 'react'
-import { Input } from 'semantic-ui-react'
+import PickRow from './PickRow.js'
+import { Dropdown } from 'semantic-ui-react'
 
 const PickStats = (props) => {
+  let player = props.playerStats.map((player, idx) => <PickRow  player={player.careerSummary} key={idx}/>)
+  let options = []
+  for (let i = 1; i < 61; i++) {
+    options.push({key: i, value: i, text: `Pick ${i}`})
+  }
   return (
-    <Input onChange={props.handleChange} type='number' placeholder='Pick Number...' min='1' max='60' />
+    <div className='centered'>
+      <Dropdown onChange={props.handleChange} placeholder='Choose By Pick...' search selection options={options} />
+
+      <h1 className='centered'>Statistical Analysis by Pick</h1>
+      <table className="ui striped celled collapsing compact table" style={{fontSize: "medium"}}>
+        <thead className='headers'>
+          <tr>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Name</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Points Per Game</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Rebounds Per Game</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Assists Per Game</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Field Goal Percentage</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Three Point Percentage</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Plus-Minus</h3>
+            </th>
+            <th className='center aligned' style={{color: 'white', backgroundColor: "black"}}>
+              <h3>Games Played</h3>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {player}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
