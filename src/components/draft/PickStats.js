@@ -1,5 +1,6 @@
 import React from 'react'
 import PickRow from './PickRow.js'
+import ColumnTotals from './ColumnTotals.js'
 import MainLoader from '../loaders/MainLoader.js'
 import { Dropdown } from 'semantic-ui-react'
 
@@ -52,6 +53,9 @@ const PickStats = (props) => {
           <tbody>
             {player}
           </tbody>
+          <ColumnTotals
+            playerStats = {props.playerStats}
+          />
         </table>
       </div>
     )

@@ -51,7 +51,7 @@ export default class DraftTool extends React.Component {
     if (this.state.updateStats){
       this.fetchPlayerStats()
     }
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div>
         <NavMenu />
