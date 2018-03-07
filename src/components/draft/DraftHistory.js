@@ -10,8 +10,8 @@ const DraftHistory = (props) => {
       <MainLoader />
     )
   } else {
-    let playerListOne = props.players.slice(0,5).map(player => <HistoryList player={player}/>)
-    let playerListTwo = props.players.slice(5,10).map(player => <HistoryList player={player}/>)
+    let playerListOne = props.players.slice(0,5).map((player, idx) => <HistoryList key={idx} player={player}/>)
+    let playerListTwo = props.players.slice(5,10).map((player, idx) => <HistoryList key={idx} player={player}/>)
     return (
       <Tab.Pane style = {{height: "315px"}}>
         <div className='left'>

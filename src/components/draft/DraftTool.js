@@ -12,7 +12,13 @@ export default class DraftTool extends React.Component {
     updateStats: true,
     updatePlayers: true,
     netsDrafted: [],
-    selectedPlayer: ""
+    selectedPlayer: "",
+    oneD: 0,
+    oneDD: 0,
+    oneDDD: 0,
+    twoD: 0,
+    twoDD: 0,
+    twoDDD: 0
   }
 
   fetchPlayers = () => {
@@ -48,9 +54,43 @@ export default class DraftTool extends React.Component {
     })
   }
 
-  handlePlayerClick = (event) => {
-    console.log(event.target.value)
+  handleOneD = (event, data) => {
+    this.setState({
+      oneD: data.value
+    })
   }
+
+  handleOneDD = (event, data) => {
+    this.setState({
+      oneDD: data.value
+    })
+  }
+
+  handleOneDDD = (event, data) => {
+    this.setState({
+      oneDDD: data.value
+    })
+  }
+
+  handleTwoD = (event, data) => {
+    this.setState({
+      twoD: data.value
+    })
+  }
+
+  handleTwoDD = (event, data) => {
+    this.setState({
+      twoDD: data.value
+    })
+  }
+
+  handleTwoDDD = (event, data) => {
+    this.setState({
+      twoDDD: data.value
+    })
+  }
+
+
 
   render () {
     if (this.state.updatePlayers){
@@ -69,7 +109,18 @@ export default class DraftTool extends React.Component {
           <NetsPicks />
           <DraftTab
             drafted = {this.state.netsDrafted}
-            handleClick = {this.handlePlayerClick}
+            handleOneD = {this.handleOneD}
+            handleOneDD = {this.handleOneDD}
+            handleOneDDD = {this.handleOneDDD}
+            handleTwoD = {this.handleTwoD}
+            handleTwoDD = {this.handleTwoDD}
+            handleTwoDDD = {this.handleTwoDDD}
+            oneD = {this.state.oneD}
+            oneDD = {this.state.oneDD}
+            oneDDD = {this.state.oneDDD}
+            twoD = {this.state.twoD}
+            twoDD = {this.state.twoDD}
+            twoDDD = {this.state.twoDDD}
           />
         </div>
         <div style={{marginBottom: '200px'}}>
@@ -84,7 +135,3 @@ export default class DraftTool extends React.Component {
     )
   }
 }
-
-
-// Ability to display stats of all current nba players by draft position. Comparing the top 5 best and 5 worst draft positions by statistics.
-// Show nets future draft picks. Show draft pick value chart. List top upcoming prospects for the upcoming draft. Also maybe look at statistics of recent nets draft picks.
