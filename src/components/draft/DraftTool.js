@@ -10,7 +10,9 @@ export default class DraftTool extends React.Component {
     currentPick: 1,
     playerStats: [],
     updateStats: true,
-    updatePlayers: true
+    updatePlayers: true,
+    netsDrafted: [],
+    selectedPlayer: ""
   }
 
   fetchPlayers = () => {
@@ -18,6 +20,7 @@ export default class DraftTool extends React.Component {
     .then(res => res.json())
     .then(data => this.setState({
       players: data.league.standard.filter(o => parseInt(o.draft.pickNum, 10) === this.state.currentPick),
+      netsDrafted: data.league.standard.filter(o => o.draft.teamId === "1610612751"),
       playerStats: [],
       updatePlayers: false,
       updateStats: true
@@ -45,6 +48,10 @@ export default class DraftTool extends React.Component {
     })
   }
 
+  handlePlayerClick = (event) => {
+    console.log(event.target.value)
+  }
+
   render () {
     if (this.state.updatePlayers){
       this.fetchPlayers()
@@ -52,18 +59,27 @@ export default class DraftTool extends React.Component {
     if (this.state.updateStats){
       this.fetchPlayerStats()
     }
-
+    if (this.state.updateDrafted){
+      this.fetchDraftedPlayers()
+    }
     return (
       <div>
         <NavMenu />
-        <NetsPicks />
-        <DraftTab />
-        <PickStats
-          handleChange = {this.handlePickChange}
-          playerStats = {this.state.playerStats}
-          players = {this.state.players}
-          currentPick={this.state.currentPick}
-        />
+        <div style={{marginTop: '60px', marginBottom: '200px'}}>
+          <NetsPicks />
+          <DraftTab
+            drafted = {this.state.netsDrafted}
+            handleClick = {this.handlePlayerClick}
+          />
+        </div>
+        <div style={{marginBottom: '200px'}}>
+          <PickStats
+            handleChange = {this.handlePickChange}
+            playerStats = {this.state.playerStats}
+            players = {this.state.players}
+            currentPick={this.state.currentPick}
+          />
+        </div>
       </div>
     )
   }

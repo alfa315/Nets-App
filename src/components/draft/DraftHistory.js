@@ -1,10 +1,28 @@
 import React from 'react'
 import { Tab } from 'semantic-ui-react'
+import MainLoader from '../loaders/MainLoader.js'
+import HistoryList from './HistoryList.js'
+
 
 const DraftHistory = (props) => {
-  return (
-    <Tab.Pane>Draft history here</Tab.Pane>
-  )
+  if (props.players.length === 0 || props.players === undefined) {
+    return (
+      <MainLoader />
+    )
+  } else {
+    let playerListOne = props.players.slice(0,5).map(player => <HistoryList player={player}/>)
+    let playerListTwo = props.players.slice(5,10).map(player => <HistoryList player={player}/>)
+    return (
+      <Tab.Pane style = {{height: "315px"}}>
+        <div className='left'>
+          {playerListOne}
+        </div>
+        <div className='right' style = {{marginRight: '50px'}}>
+          {playerListTwo}
+        </div>
+      </Tab.Pane>
+    )
+  }
 }
 
 export default DraftHistory

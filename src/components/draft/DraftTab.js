@@ -6,7 +6,7 @@ import { Tab } from 'semantic-ui-react'
 
 const DraftTab = (props) => {
   let panes = [
-    { menuItem: 'Nets Draft History', render: () => <DraftHistory /> },
+    { menuItem: 'Nets Draft History', render: () => <DraftHistory players={props.drafted}/> },
     { menuItem: 'Draft Prospects', render: () => <Prospects /> },
     { menuItem: 'Draft Pick Trade Value', render: () => <TradeValue /> },
   ]
