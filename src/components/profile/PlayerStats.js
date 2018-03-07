@@ -92,7 +92,7 @@ const PlayerStats = (props) => {
           <h1>Please Select Another Player to Compare</h1>
           <Dropdown onChange={props.handleChange} placeholder='Select Player'  search selection options={list} />
           <br></br>
-          <Button className='compButton' onClick={props.handleClick}>Compare Players</Button>
+          <Button color="black" className='compButton' onClick={props.handleClick}>Compare Players</Button>
         </div>
       </Tab.Pane> }
     ]
