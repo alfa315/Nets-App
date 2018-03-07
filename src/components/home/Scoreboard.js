@@ -8,6 +8,9 @@ const Scoreboard = (props) => {
       <Card.Group>
        <GameCard
         games={props.games}
+        yesterday={props.yesterday}
+        handleYClick={props.handleYClick}
+        status={props.status}
        />
       </Card.Group>
     </div>
