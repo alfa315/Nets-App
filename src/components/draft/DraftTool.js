@@ -2,6 +2,7 @@ import React from 'react'
 import NavMenu from '../navbar/NavMenu.js'
 import PickStats from './PickStats.js'
 import NetsPicks from './NetsPicks.js'
+import DraftTab from './DraftTab.js'
 
 export default class DraftTool extends React.Component {
   state = {
@@ -55,10 +56,8 @@ export default class DraftTool extends React.Component {
     return (
       <div>
         <NavMenu />
-        <h1 className='centered'>NBA Draft Stats</h1>
-        <NetsPicks
-
-        />
+        <NetsPicks />
+        <DraftTab />
         <PickStats
           handleChange = {this.handlePickChange}
           playerStats = {this.state.playerStats}

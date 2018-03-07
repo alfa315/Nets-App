@@ -4,7 +4,7 @@ import { Popup, Card } from 'semantic-ui-react'
 
 const NetsPicks = (props) => {
   return (
-    <Card style={{width: '285px', height: '330px'}}>
+    <Card style={{width: '285px', height: '330px', marginLeft: '10%'}}>
       <Card.Content>
         <Card.Header>
           2018 Nets Draft Picks

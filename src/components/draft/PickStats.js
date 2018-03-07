@@ -17,10 +17,11 @@ const PickStats = (props) => {
       options.push({key: i, value: i, text: `Pick ${i}`})
     }
     return (
-      <div className='centered'>
+      <div className='centered' style = {{marginTop: "75px"}}>
+        <h1 style={{fontSize: "275%"}}>Analyze Active Players By Pick</h1>
         <Dropdown onChange={props.handleChange} placeholder='Choose By Pick...' search selection options={options} />
 
-        <h1 className='centered'>Statistics of Players Drafted # {props.currentPick}</h1>
+        <h1 className='centered'>Players Drafted # {props.currentPick}</h1>
         <table className="ui striped celled collapsing compact table" style={{fontSize: "medium"}}>
           <thead className='headers'>
             <tr>
