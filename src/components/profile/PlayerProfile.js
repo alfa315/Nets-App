@@ -100,7 +100,6 @@ export default class PlayerProfile extends React.Component {
   }
 
   render () {
-    console.log(this.state)
     if(this.state.playerBio.length === 0 || this.state.playerBio === undefined) {
       return (
         <MainLoader />
