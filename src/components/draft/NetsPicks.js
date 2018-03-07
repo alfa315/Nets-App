@@ -18,7 +18,7 @@ const NetsPicks = (props) => {
               <p style={{marginBottom: "25px"}}>2018 1st Round Pick from Toronto - Currently projected 28th Pick</p>
             }
             inverted
-            position = "right center"
+            position = "top center"
             content = "Protected for selections 1-14"
           >
           </Popup>
@@ -45,7 +45,7 @@ const NetsPicks = (props) => {
               <p>2018 2nd Round Pick from Milwaukee Bucks - Currently Projected for 44th Pick</p>
             }
             inverted
-            position = "right center"
+            position = "bottom center"
             content = "Protected for selections 48-60 in 2018"
           >
           </Popup>
