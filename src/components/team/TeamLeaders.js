@@ -4,7 +4,7 @@ import { Card, Image } from 'semantic-ui-react'
 
 
 const TeamLeaders = (props) => {
-  if(props.players.length === 0 || props.players === undefined || props.leaders.ppg[0].length === 0 || props.leaders === undefined) {
+  if(props.players.length === 0 || props.players === undefined || props.leaders.ppg.length === 0 || props.leaders === undefined) {
     return (
       <MainLoader />
     )
