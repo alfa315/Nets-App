@@ -14,7 +14,7 @@ const TeamRankings = (props) => {
         <Progress color='black' style = {{width: '50%'}} progress='value' value={props.rankings.ppg.rank} total={30} active>
           <h3>Points Per Game - {props.rankings.ppg.avg}</h3>
         </Progress>
-        <Progress color='black' style = {{width: '50%'}} progress='value' value={props.rankings.oppg.rank} total={30} active>
+        <Progress color='black' style = {{width: '50%'}} progress='value' value={31 - props.rankings.oppg.rank} total={30} active>
           <h3>Opponents Points Per Game - {props.rankings.oppg.avg}</h3>
         </Progress>
         <Progress color='black' style = {{width: '50%'}} progress='value' value={props.rankings.trpg.rank} total={30} active>
@@ -35,7 +35,7 @@ const TeamRankings = (props) => {
         <Progress color='black' style = {{width: '50%'}} progress='value' value={props.rankings.bpg.rank} total={30} active>
           <h3>Blocks Per Game - {props.rankings.bpg.avg}</h3>
         </Progress>
-        <Progress color='black' style = {{width: '50%'}} progress='value' value={props.rankings.tpg.rank} total={30} active>
+        <Progress color='black' style = {{width: '50%'}} progress='value' value={31 - props.rankings.tpg.rank} total={30} active>
           <h3>Turnovers Per Game - {props.rankings.tpg.avg}</h3>
         </Progress>
       </div>
