@@ -20,7 +20,6 @@ export default class DraftTool extends React.Component {
       playerStats: [],
       updatePlayers: false,
       updateStats: true
-
     }))
   }
 
@@ -52,12 +51,13 @@ export default class DraftTool extends React.Component {
     if (this.state.updateStats){
       this.fetchPlayerStats()
     }
-    // console.log(((this.state.playerStats.map(player => parseFloat(player.careerSummary.ppg, 10)).reduce((a, b) => a + b, 0)) / this.state.playerStats.length).toFixed(1))
+
     return (
       <div>
         <NavMenu />
         <h1 className='centered'>NBA Draft Stats</h1>
         <NetsPicks
+
         />
         <PickStats
           handleChange = {this.handlePickChange}
