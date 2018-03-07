@@ -42,7 +42,7 @@ export default class TeamStats extends React.Component {
 
 
   render () {
-    console.log(this.state.allPlayers)
+    console.log(this.state.leaders)
     return (
       <div>
         <NavMenu />
