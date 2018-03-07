@@ -23,10 +23,13 @@ const TradeValue = (props) => {
           <h4 style={{textAlign: 'center'}}>Trade Value</h4>
           <p style={{textAlign: 'center'}}>{props.oneD + props.oneDD + props.oneDDD}</p>
         </div>
+
         <div className='centered' style = {{marginTop: "10%"}}>
-          <h2>Trade Value Winner:</h2>
-          {teamOne > teamTwo ? <Icon style = {{marginLeft: '28%'}} name='pointing left' size='huge'></Icon> : teamOne < teamTwo ? <Icon name='pointing right' style = {{marginRight: '28%'}} size='huge'></Icon> : <h3>Trade Value is equal or no selections have been made</h3>}
+          <h1>Trade Value Winner:</h1>
+          {teamOne > teamTwo ? <Icon name='pointing left' size='huge'></Icon> : teamOne < teamTwo ? <Icon name='pointing right'  size='huge'></Icon> : <h4>Trade Value is equal or no selections have been made</h4>}
+          {teamOne > teamTwo ? <h4>Trade value favors Team One</h4> : teamOne < teamTwo ? <h4>Trade value favors Team Two</h4> : ""}
         </div>
+
         <div>
           <h1>Team 2</h1>
           <Dropdown style = {{display: "block", marginBottom: "7px"}} onChange={props.handleTwoD} placeholder='Choose First Pick...' search selection options={options} />
