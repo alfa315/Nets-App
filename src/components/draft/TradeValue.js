@@ -26,8 +26,8 @@ const TradeValue = (props) => {
 
         <div className='centered' style = {{marginTop: "10%"}}>
           <h1>Trade Value Winner:</h1>
-          {teamOne > teamTwo ? <Icon name='pointing left' size='huge'></Icon> : teamOne < teamTwo ? <Icon name='pointing right'  size='huge'></Icon> : <h4>Trade Value is equal or no selections have been made</h4>}
-          {teamOne > teamTwo ? <h4>Trade value favors Team One</h4> : teamOne < teamTwo ? <h4>Trade value favors Team Two</h4> : ""}
+          {teamOne > teamTwo ? <Icon name='pointing right' size='huge'></Icon> : teamOne < teamTwo ? <Icon name='pointing left'  size='huge'></Icon> : <h4>Trade Value is equal or no selections have been made</h4>}
+          {teamOne > teamTwo ? <h4>Trade value favors Team Two</h4> : teamOne < teamTwo ? <h4>Trade value favors Team One</h4> : ""}
         </div>
 
         <div>
