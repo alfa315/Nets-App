@@ -70,8 +70,5 @@ export default class NavMenu extends Component {
   }
 }
 
-// size to Percentage
-// reset button and directions for trade tradeValue
-// search criteria duplicates
 // clickable games
 // change on hover

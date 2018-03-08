@@ -17,7 +17,14 @@ export default class ResultsList extends React.Component {
         <h1> No Players Found. </h1>
       )
     } else if (this.props.results.length > 0){
-      let player = this.props.results.map((bio, idx) => <ResultsItem results={bio} teams={this.props.teams} id={bio.personId} key={idx}/>)
+
+      let noDupes = []
+      for (let i = 0; i < this.props.results.length; i++) {
+        if (!noDupes.includes(this.props.results[i])){
+          noDupes.push(this.props.results[i])
+        }
+      }
+      let player = noDupes.map((bio, idx) => <ResultsItem results={bio} teams={this.props.teams} id={bio.personId} key={idx}/>)
       return(
         <div className='searchList'>
           <List>

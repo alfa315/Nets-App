@@ -65,7 +65,6 @@ export default class ComparePlayer extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return(
       <div>
         <NavMenu />

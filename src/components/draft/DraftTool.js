@@ -90,6 +90,17 @@ export default class DraftTool extends React.Component {
     })
   }
 
+  handleResetClick = (event) => {
+    this.setState({
+      oneD: 0,
+      oneDD: 0,
+      oneDDD: 0,
+      twoD: 0,
+      twoDD: 0,
+      twoDDD: 0
+    })
+  }
+
 
 
   render () {
@@ -121,6 +132,7 @@ export default class DraftTool extends React.Component {
             twoD = {this.state.twoD}
             twoDD = {this.state.twoDD}
             twoDDD = {this.state.twoDDD}
+            reset = {this.handleResetClick}
           />
         </div>
         <div style={{marginBottom: '200px'}}>

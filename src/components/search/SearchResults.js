@@ -20,6 +20,7 @@ export default class SearchResults extends React.Component {
     .then(res => res.json())
     .then(data => {for(let i=0; i < this.state.searchTerms.length; i++){
       let playerSearch = data.league.standard.filter(o => o.firstName.toLowerCase() === this.state.searchTerms[i].toLowerCase() || o.lastName.toLowerCase() === this.state.searchTerms[i].toLowerCase())
+
       if(playerSearch.length > 0) {
         this.setState({
           results: this.state.results.concat(playerSearch),
@@ -31,7 +32,6 @@ export default class SearchResults extends React.Component {
           stillSearching: false
         })
       }
-
     }})
   }
 
@@ -44,7 +44,6 @@ export default class SearchResults extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return(
       <div>
         <NavMenu />

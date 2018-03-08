@@ -44,6 +44,3 @@ const TeamRankings = (props) => {
 }
 
 export default TeamRankings
-
-
-// {props.rankings.ppg.avg}

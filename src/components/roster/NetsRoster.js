@@ -38,7 +38,6 @@ class NetsRoster extends Component {
     if (this.state.updateBios) {
       this.fetchPlayerBios()
     }
-    console.log(this.state)
     return (
       <div className='currentRoster'>
         <NavMenu />

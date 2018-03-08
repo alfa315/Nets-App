@@ -116,7 +116,6 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div style={{width: "100%"}}>
         <NavMenu />

@@ -42,7 +42,6 @@ export default class TeamStats extends React.Component {
 
 
   render () {
-    console.log(this.state.leaders)
     return (
       <div>
         <NavMenu />
@@ -57,6 +56,3 @@ export default class TeamStats extends React.Component {
     )
   }
 }
-
-
-// Sortable roster by statistic leaders. Maybe top leaders from most recent game like RealGM. Current salary cap situation and for the available season against projected cap. List potential targets for free agency. Maybe add last 5 games results on homepage or on team stats page.
