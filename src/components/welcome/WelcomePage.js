@@ -21,14 +21,14 @@ class WelcomePage extends Component {
     }
     return (
       <div className='centered'>
-        <h1 style={{fontSize: '500%'}}><img
+        <h1 style={{fontSize: '480%'}}><img
           src={logo}
           alt='Brooklyn Nets'
-          style={{marginRight: '70px', marginTop: '15px', height: "125px", width: "125px"}}
+          style={{marginRight: '2%', marginTop: '15px', height: "8%", width: "8%"}}
         />WELCOME TO NOTHING BUT NETS<img
           src={logo}
           alt='Brooklyn Nets'
-          style={{marginLeft: '70px', marginTop: '15px', height: "125px", width: "125px"}}
+          style={{marginLeft:'2%', marginTop: '15px', height: "8%", width: "8%"}}
         /></h1>
         <div  >
           <video
@@ -42,8 +42,8 @@ class WelcomePage extends Component {
 
           </video>
         </div>
-        <div>
-          <Button style={{width: '250px', marginTop: '50px'}} size='massive' color='black' onClick={this.handleOnClick} >Enter</Button>
+        <div style={{marginBottom: "7%", marginTop: '5%'}}>
+          <Button style={{width: '250px'}} size='massive' color='black' onClick={this.handleOnClick} >Enter</Button>
         </div>
       </div>
     )

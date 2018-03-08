@@ -118,7 +118,7 @@ class HomePage extends Component {
   render() {
     console.log(this.state)
     return (
-      <div className='homepage'>
+      <div style={{width: "100%"}}>
         <NavMenu />
         <h1 className='centered xxl'>Nothing But Nets</h1>
         <hr></hr>
@@ -135,14 +135,16 @@ class HomePage extends Component {
           handleNext={this.handleNextClick}
           handlePrevious={this.handlePreviousClick}
         />
-        <WestStandings
-          teams={this.state.teams}
-          standings={this.state.standings}
-        />
-        <EastStandings
-          teams={this.state.teams}
-          standings={this.state.standings}
-        />
+        <div style={{display: "flex"}}>
+          <WestStandings
+            teams={this.state.teams}
+            standings={this.state.standings}
+          />
+          <EastStandings
+            teams={this.state.teams}
+            standings={this.state.standings}
+          />
+        </div>
       </div>
     )
   }

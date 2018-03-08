@@ -12,7 +12,7 @@ const EastStandings = (props) => {
     let eastRows = props.standings.east.map((team, idx) => <EastItems item={team} teamIds={props.teams} key={idx}/>)
 
     return (
-      <div className='centered right'>
+      <div className='centered'>
         <h1>East Standings</h1>
         <table  className="ui celled compact table striped">
           <thead className='headers'>

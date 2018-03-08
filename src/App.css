@@ -175,8 +175,9 @@ b {
 }
 
 .textBlock {
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 17%;
+  margin-right: 17%;
+  font-size: 18px
 }
 
 .ui.black.active.progress {

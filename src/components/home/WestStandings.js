@@ -12,7 +12,7 @@ const WestStandings = (props) => {
     let westRows = props.standings.west.map((team, idx) => <WestItems item={team} teamIds={props.teams} key={idx}/>)
 
     return (
-      <div className='centered left bottomMarg'>
+      <div className='centered bottomMarg'>
         <h1>West Standings</h1>
         <table  className="ui celled compact table striped">
           <thead className='headers'>
