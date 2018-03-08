@@ -3,7 +3,7 @@ import { Segment, Dimmer, Loader } from 'semantic-ui-react'
 
 const MainLoader = () => {
   return (
-    <div style={{height: '500px'}} className='ui-segment'>
+    <div style={{height: '500px', width:'100%'}} className='ui-segment'>
       <Segment style={{height: '30%'}}>
         <Dimmer active>
           <Loader size='huge' active>Loading...</Loader>
