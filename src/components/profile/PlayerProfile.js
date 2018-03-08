@@ -95,7 +95,7 @@ export default class PlayerProfile extends React.Component {
     if (this.state.compPlayer.length === 0) {
       window.location.reload()
     } else {
-      window.location.href=`http://localhost:3000/comp/${this.state.currentId}/${this.state.compPlayer}`
+      window.location.href=`${window.location.origin}/comp/${this.state.currentId}/${this.state.compPlayer}`
     }
   }
 

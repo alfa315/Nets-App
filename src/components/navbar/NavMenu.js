@@ -17,15 +17,15 @@ export default class NavMenu extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     if(this.state.searchValue.length === 0) {
-      window.location.replace(`http://localhost:3000/search/nothing`)
+      window.location.replace(`${window.location.origin}/search/nothing`)
     } else {
-      window.location.replace(`http://localhost:3000/search/${this.state.searchValue.split(" ").join("-")}`)
+      window.location.replace(`${window.location.origin}/search/${this.state.searchValue.split(" ").join("-")}`)
     }
   }
 
   handleClick = (event) => {
     event.preventDefault()
-    window.location.replace(`http://localhost:3000/search/${this.state.searchValue.split(" ").join("-")}`)
+    window.location.replace(`${window.location.origin}/search/${this.state.searchValue.split(" ").join("-")}`)
   }
 
   render() {
