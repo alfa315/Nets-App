@@ -14,7 +14,7 @@ export default class ResultsList extends React.Component {
       )
     } else if (this.props.results.length === 0 && this.props.searching === false) {
       return (
-        <h1> No Players Found. </h1>
+        <h1 style={{textAlign: 'center', marginTop: '100px', fontSize: '50px'}}> No Players Found. </h1>
       )
     } else if (this.props.results.length > 0){
 

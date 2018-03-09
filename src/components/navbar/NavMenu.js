@@ -16,7 +16,7 @@ export default class NavMenu extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    if(this.state.searchValue.length === 0) {
+    if(this.state.searchValue.length === 0 || !/^[a-zA-Z]/.test(this.state.searchValue[0])) {
       window.location.replace(`${window.location.origin}/search/nothing`)
     } else {
       window.location.replace(`${window.location.origin}/search/${this.state.searchValue.split(" ").join("-")}`)
@@ -25,10 +25,15 @@ export default class NavMenu extends Component {
 
   handleClick = (event) => {
     event.preventDefault()
-    window.location.replace(`${window.location.origin}/search/${this.state.searchValue.split(" ").join("-")}`)
+    if(this.state.searchValue === "" ) {
+      window.location.replace(`${window.location.origin}/search/nothing`)
+    } else {
+      window.location.replace(`${window.location.origin}/search/${this.state.searchValue.split(" ").join("-")}`)
+    }
   }
 
   render() {
+    console.log(this.state.searchValue.length)
     return (
       <Segment inverted>
         <Menu inverted secondary>
