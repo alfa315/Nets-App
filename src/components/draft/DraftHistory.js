@@ -13,11 +13,11 @@ const DraftHistory = (props) => {
     let playerListOne = props.players.slice(0,5).map((player, idx) => <HistoryList key={idx} player={player}/>)
     let playerListTwo = props.players.slice(5,10).map((player, idx) => <HistoryList key={idx} player={player}/>)
     return (
-      <Tab.Pane style = {{height: "315px"}}>
-        <div className='left'>
+      <Tab.Pane style = {{height: "auto", display: 'flex'}}>
+        <div className='left' style={{width: '100%'}}>
           {playerListOne}
         </div>
-        <div className='right' style = {{marginRight: '50px'}}>
+        <div className='right' style = {{width: '100%'}}>
           {playerListTwo}
         </div>
       </Tab.Pane>
