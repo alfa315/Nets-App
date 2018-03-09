@@ -2,7 +2,7 @@ import React from 'react'
 
 const PickRow = (props) => {
   return (
-    <tr>
+    <tr className='changeColor'>
       <td><a href={`/player/${props.player.pId}`}>{props.player.name}</a></td>
       <td>{props.player.careerSummary.ppg}</td>
       <td>{props.player.careerSummary.rpg}</td>

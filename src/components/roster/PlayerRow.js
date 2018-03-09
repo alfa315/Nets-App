@@ -6,7 +6,7 @@ const PlayerRow = (props) => {
   let mm = parseInt(today.getMonth()+1, 10)
   let yyyy = parseInt(today.getFullYear(), 10)
   return (
-    <tr>
+    <tr className='changeColor'>
       <td><a href={`/player/${props.id}`}>{props.bio.firstName} {props.bio.lastName}</a></td>
       <td>{props.bio.pos}</td>
       <td>{props.bio.jersey}</td>

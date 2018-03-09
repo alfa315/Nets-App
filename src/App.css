@@ -187,3 +187,20 @@ b {
   text-align: center;
   margin-bottom: 60px;
 }
+
+tr:nth-child(2n).changeColor{
+  background-color: rgba(0,0,50,.02);
+}
+
+tr:nth-child(2n).changeColor:hover {
+  background-color: rgb(210, 212, 216);
+}
+
+.changeColor:hover {
+  background-color: rgb(210, 212, 216);
+}
+
+.ui.celled.collapsing.compact.padded.table {
+  margin: auto;
+  text-align: center;
+}
