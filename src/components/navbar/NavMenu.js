@@ -33,7 +33,6 @@ export default class NavMenu extends Component {
   }
 
   render() {
-    console.log(this.state.searchValue.length)
     return (
       <Segment inverted>
         <Menu inverted secondary>
