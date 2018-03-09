@@ -24,7 +24,7 @@ const TeamLeaders = (props) => {
           <Image src={`https://nba-players.herokuapp.com/players/${ppgName.lastName.replace(/[.']/g,'').split(" ").join("_")}/${ppgName.firstName.replace(/[.']/g,'').split(" ").join("_")}`} />
           <Card.Content>
             <Card.Header>
-              <a href={`/player/${props.leaders.ppg[0].personId}`}>{ppgName.firstName} {ppgName.lastName}</a>
+              <a style={{fontSize: '16px'}} href={`/player/${props.leaders.ppg[0].personId}`}>{ppgName.firstName} {ppgName.lastName}</a>
             </Card.Header>
             <Card.Description>
               <h5>{props.leaders.ppg[0].value}</h5>
@@ -37,7 +37,7 @@ const TeamLeaders = (props) => {
           <Image src={`https://nba-players.herokuapp.com/players/${trpgName.lastName.replace(/[.']/g,'').split(" ").join("_")}/${trpgName.firstName.replace(/[.']/g,'').split(" ").join("_")}`} />
           <Card.Content>
             <Card.Header>
-              <a href={`/player/${props.leaders.trpg[0].personId}`}>{trpgName.firstName} {trpgName.lastName}</a>
+              <a style={{fontSize: '16px'}} href={`/player/${props.leaders.trpg[0].personId}`}>{trpgName.firstName} {trpgName.lastName}</a>
             </Card.Header>
             <Card.Description>
               <h5>{props.leaders.trpg[0].value}</h5>
@@ -50,7 +50,7 @@ const TeamLeaders = (props) => {
           <Image src={`https://nba-players.herokuapp.com/players/${apgName.lastName.replace(/[.']/g,'').split(" ").join("_")}/${apgName.firstName.replace(/[.']/g,'').split(" ").join("_")}`} />
           <Card.Content>
             <Card.Header>
-              <a href={`/player/${props.leaders.apg[0].personId}`}>{apgName.firstName} {apgName.lastName}</a>
+              <a style={{fontSize: '16px'}} href={`/player/${props.leaders.apg[0].personId}`}>{apgName.firstName} {apgName.lastName}</a>
             </Card.Header>
             <Card.Description>
               <h5>{props.leaders.apg[0].value}</h5>
@@ -63,7 +63,7 @@ const TeamLeaders = (props) => {
           <Image src={`https://nba-players.herokuapp.com/players/${fgpName.lastName.replace(/[.']/g,'').split(" ").join("_")}/${fgpName.firstName.replace(/[.']/g,'').split(" ").join("_")}`} />
           <Card.Content>
             <Card.Header>
-              <a href={`/player/${props.leaders.fgp[0].personId}`}>{fgpName.firstName} {fgpName.lastName}</a>
+              <a style={{fontSize: '16px'}} href={`/player/${props.leaders.fgp[0].personId}`}>{fgpName.firstName} {fgpName.lastName}</a>
             </Card.Header>
             <Card.Description>
               <h5>{props.leaders.fgp[0].value}</h5>
@@ -76,7 +76,7 @@ const TeamLeaders = (props) => {
           <Image src={`https://nba-players.herokuapp.com/players/${spgName.lastName.replace(/[.']/g,'').split(" ").join("_")}/${spgName.firstName.replace(/[.']/g,'').split(" ").join("_")}`} />
           <Card.Content>
             <Card.Header>
-              <a href={`/player/${props.leaders.spg[0].personId}`}>{spgName.firstName} {spgName.lastName}</a>
+              <a style={{fontSize: '16px'}} href={`/player/${props.leaders.spg[0].personId}`}>{spgName.firstName} {spgName.lastName}</a>
             </Card.Header>
             <Card.Description>
               <h5>{props.leaders.spg[0].value}</h5>
@@ -89,7 +89,7 @@ const TeamLeaders = (props) => {
           <Image src={`https://nba-players.herokuapp.com/players/${bpgName.lastName.replace(/[.']/g,'').split(" ").join("_")}/${bpgName.firstName.replace(/[.']/g,'').split(" ").join("_")}`} />
           <Card.Content>
             <Card.Header>
-              <a href={`/player/${props.leaders.bpg[0].personId}`}>{bpgName.firstName} {bpgName.lastName}</a>
+              <a style={{fontSize: '16px'}} href={`/player/${props.leaders.bpg[0].personId}`}>{bpgName.firstName} {bpgName.lastName}</a>
             </Card.Header>
             <Card.Description>
               <h5>{props.leaders.bpg[0].value}</h5>
