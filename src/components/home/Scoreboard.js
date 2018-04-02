@@ -11,6 +11,7 @@ const Scoreboard = (props) => {
         yesterday={props.yesterday}
         handleYClick={props.handleYClick}
         status={props.status}
+        numGames={props.numGames}
        />
       </Card.Group>
     </div>

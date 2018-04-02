@@ -8,6 +8,7 @@ import NewsContainer from './NewsContainer.js'
 class HomePage extends Component {
   state = {
     todaysGames: [],
+    numGames: -1,
     teams: [],
     standings: [],
     news: [],
@@ -55,7 +56,8 @@ class HomePage extends Component {
     fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/${today}/scoreboard.json`)
     .then(res => res.json())
     .then(data => this.setState({
-      todaysGames: data.games
+      todaysGames: data.games,
+      numGames: data.numGames
     }))
   }
 
@@ -126,6 +128,7 @@ class HomePage extends Component {
           yesterday={this.state.yesterdaysGames}
           handleYClick = {this.handleYesterdayClick}
           status = {this.state.yesterdayStatus}
+          numGames = {this.state.numGames}
         />
         <hr></hr>
         <NewsContainer
