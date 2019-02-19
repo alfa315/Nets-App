@@ -16,7 +16,7 @@ class NetsRoster extends Component {
   }
 
   fetchPlayerIds = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams/1610612751/roster.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/teams/1610612751/roster.json")
     .then(res => res.json())
     .then(data => this.setState({
       playerIds: data.league.standard.players
@@ -25,7 +25,7 @@ class NetsRoster extends Component {
 
   fetchPlayerBios = () => {
     this.state.playerIds.map(player =>
-      fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+      fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
       .then(res => res.json())
       .then(data => this.setState({
         playerBios: this.state.playerBios.concat(data.league.standard.find(o => o.personId === player.personId)),

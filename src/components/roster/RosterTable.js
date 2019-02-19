@@ -13,7 +13,7 @@ export default class RosterTable extends React.Component {
       let player = this.props.playerBios.map((bio, idx) => <PlayerRow bio={bio} id={bio.personId} key={idx}/>)
       return (
         <div className='centered bottomMarg'>
-          <h1 className='centered'>2017-2018 Brooklyn Nets Roster</h1>
+          <h1 className='centered'>2018-2019 Brooklyn Nets Roster</h1>
           <hr></hr>
           <table className="ui celled collapsing compact padded table" style={{fontSize: "medium"}}>
             <thead className='headers'>

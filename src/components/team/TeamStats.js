@@ -17,7 +17,7 @@ export default class TeamStats extends React.Component {
   }
 
   fetchLeaders = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams/1610612751/leaders.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/teams/1610612751/leaders.json")
     .then(res => res.json())
     .then(data => this.setState({
       leaders: data.league.standard
@@ -25,7 +25,7 @@ export default class TeamStats extends React.Component {
   }
 
   fetchPlayers = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       allPlayers: data.league.standard
@@ -33,7 +33,7 @@ export default class TeamStats extends React.Component {
   }
 
   fetchRankings = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/team_stats_rankings.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/team_stats_rankings.json")
     .then(res => res.json())
     .then(data => this.setState({
       rankings: data.league.standard.regularSeason.teams.find(team => team.teamId === "1610612751")

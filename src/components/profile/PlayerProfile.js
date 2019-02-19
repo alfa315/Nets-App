@@ -37,7 +37,7 @@ export default class PlayerProfile extends React.Component {
   }
 
   fetchPlayerBio = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       playerBio: data.league.standard.find(o => o.personId === this.state.currentId)
@@ -45,7 +45,7 @@ export default class PlayerProfile extends React.Component {
   }
 
   fetchPlayerStats = () => {
-    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.currentId}_profile.json`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players/${this.state.currentId}_profile.json`)
     .then(res => res.json())
     .then(data => this.setState({
       playerStats: data.league.standard,
@@ -55,7 +55,7 @@ export default class PlayerProfile extends React.Component {
   }
 
   fetchAllPlayers = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       allPlayers: data.league.standard
@@ -63,7 +63,7 @@ export default class PlayerProfile extends React.Component {
   }
 
   fetchTeams = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/teams.json")
      .then(res => res.json())
      .then(data => this.setState({
        teams: data.league.standard
@@ -82,7 +82,7 @@ export default class PlayerProfile extends React.Component {
       chartName: (data.options.find(o => o.value === data.value)).text
     })
 
-    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.currentId}_profile.json`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players/${this.state.currentId}_profile.json`)
       .then(res => res.json())
       .then(data => this.setState({
         lineData: data.league.standard.stats.regularSeason.season.map(o => o.total[`${this.state.chartType}`]),
@@ -112,7 +112,7 @@ export default class PlayerProfile extends React.Component {
           <div className='profileContainer'>
             <NavMenu />
 
-            <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not  Available"/>
+            <img className='centered' src={`https://nba-players.herokuapp.com/players/${lastName}/${firstName}`} alt="Not Available" onError={(e)=>{e.target.onerror = null; e.target.src=require(`../../images/eggHead.jpg`)}}/>
 
             <h1 className='centered'>{this.state.playerBio.firstName} {this.state.playerBio.lastName} - #{this.state.playerBio.jersey} - {this.state.playerBio.pos}</h1>
 

@@ -22,7 +22,7 @@ export default class DraftTool extends React.Component {
   }
 
   fetchPlayers = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       players: data.league.standard.filter(o => parseInt(o.draft.pickNum, 10) === this.state.currentPick),
@@ -35,7 +35,7 @@ export default class DraftTool extends React.Component {
 
   fetchPlayerStats = () => {
     this.state.players.map(player =>
-      fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/players/${player.personId}_profile.json`)
+      fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/players/${player.personId}_profile.json`)
       .then(res => res.json())
       .then(data => {let newData = data.league.standard.stats
         newData.name = `${player.firstName} ${player.lastName}`
@@ -116,6 +116,15 @@ export default class DraftTool extends React.Component {
     return (
       <div>
         <NavMenu />
+        <div style={{marginBottom: '100px'}}>
+          <PickStats
+            handleChange = {this.handlePickChange}
+            playerStats = {this.state.playerStats}
+            players = {this.state.players}
+            currentPick={this.state.currentPick}
+          />
+        </div>
+        <h1 style={{textAlign: "center", fontSize: "275%"}}>2018 Draft Preparation:</h1>
         <div style={{marginTop: '60px', marginBottom: '200px'}}>
           <NetsPicks />
           <DraftTab
@@ -133,14 +142,6 @@ export default class DraftTool extends React.Component {
             twoDD = {this.state.twoDD}
             twoDDD = {this.state.twoDDD}
             reset = {this.handleResetClick}
-          />
-        </div>
-        <div style={{marginBottom: '200px'}}>
-          <PickStats
-            handleChange = {this.handlePickChange}
-            playerStats = {this.state.playerStats}
-            players = {this.state.players}
-            currentPick={this.state.currentPick}
           />
         </div>
       </div>

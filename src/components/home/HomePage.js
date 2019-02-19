@@ -26,7 +26,7 @@ class HomePage extends Component {
   }
 
   fetchTeams = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/teams.json")
      .then(res => res.json())
      .then(data => this.setState({
        teams: data.league.standard
