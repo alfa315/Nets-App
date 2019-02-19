@@ -19,7 +19,7 @@ const StatComps = (props) => {
           </Form.Field>
         </Form>
         <div className='left centered margLeft bottomMarg'>
-          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
+          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" onError={(e)=>{e.target.onerror = null; e.target.src=require(`../../images/eggHead.jpg`)}}/>
           <h1>{props.p1Bio.firstName} {props.p1Bio.lastName}</h1>
           <Table basic='very' celled collapsing striped>
             <Table.Body>
@@ -171,7 +171,7 @@ const StatComps = (props) => {
         </div>
 
         <div className='right centered margRight'>
-          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p2Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p2Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
+          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p2Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p2Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" onError={(e)=>{e.target.onerror = null; e.target.src=require(`../../images/eggHead.jpg`)}}/>
           <h1>{props.p2Bio.firstName} {props.p2Bio.lastName}</h1>
           <Table basic='very' celled collapsing striped>
             <Table.Body>
@@ -327,14 +327,14 @@ const StatComps = (props) => {
   } else if(props.toggle === "season") {
     return (
       <div className='centered'>
-        <h1>2017-2018 STATISTICS</h1>
+        <h1>2018-2019 STATISTICS</h1>
         <Form>
           <Form.Field>
             <Radio value={props.toggle} onChange={props.handleChange} toggle />
           </Form.Field>
         </Form>
         <div className='left centered margLeft bottomMarg'>
-          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
+          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p1Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p1Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" onError={(e)=>{e.target.onerror = null; e.target.src=require(`../../images/eggHead.jpg`)}}/>
           <h1>{props.p1Bio.firstName} {props.p1Bio.lastName}</h1>
           <Table basic='very' celled collapsing striped>
             <Table.Body>
@@ -486,7 +486,7 @@ const StatComps = (props) => {
         </div>
 
         <div className='right centered margRight'>
-          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p2Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p2Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" />
+          <img className='centered medium' src={`https://nba-players.herokuapp.com/players/${props.p2Bio.lastName.replace(/[.']/g,'').split(" ").join("_")}/${props.p2Bio.firstName.replace(/[.']/g,'')}`} alt="Not Available" onError={(e)=>{e.target.onerror = null; e.target.src=require(`../../images/eggHead.jpg`)}}/>
           <h1>{props.p2Bio.firstName} {props.p2Bio.lastName}</h1>
           <Table basic='very' celled collapsing striped>
             <Table.Body>

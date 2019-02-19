@@ -21,7 +21,7 @@ export default class ComparePlayer extends React.Component {
   }
 
   fetchPlayerOneStats = () => {
-    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.playerIds[0]}_profile.json`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players/${this.state.playerIds[0]}_profile.json`)
     .then(res => res.json())
     .then(data => this.setState({
       playerOneStats: data.league.standard
@@ -29,7 +29,7 @@ export default class ComparePlayer extends React.Component {
   }
 
   fetchPlayerTwoStats = () => {
-    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players/${this.state.playerIds[1]}_profile.json`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players/${this.state.playerIds[1]}_profile.json`)
     .then(res => res.json())
     .then(data => this.setState({
       playerTwoStats: data.league.standard
@@ -37,7 +37,7 @@ export default class ComparePlayer extends React.Component {
   }
 
   fetchPlayerOneBio = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       playerOneBio: data.league.standard.filter(o => o.personId === this.state.playerIds[0])
@@ -45,7 +45,7 @@ export default class ComparePlayer extends React.Component {
   }
 
   fetchPlayerTwoBio = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => this.setState({
       playerTwoBio: data.league.standard.filter(o => o.personId === this.state.playerIds[1])

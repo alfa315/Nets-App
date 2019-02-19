@@ -16,7 +16,7 @@ export default class SearchResults extends React.Component {
   }
 
   fetchPlayers = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2017/players.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s//prod/v1/2018/players.json")
     .then(res => res.json())
     .then(data => {for(let i=0; i < this.state.searchTerms.length; i++){
       let playerSearch = data.league.standard.filter(o => o.firstName.toLowerCase() === this.state.searchTerms[i].toLowerCase() || o.lastName.toLowerCase() === this.state.searchTerms[i].toLowerCase())
@@ -36,7 +36,7 @@ export default class SearchResults extends React.Component {
   }
 
   fetchTeams = () => {
-    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2017/teams.json")
+    fetch("https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2018/teams.json")
      .then(res => res.json())
      .then(data => this.setState({
        teams: data.league.standard

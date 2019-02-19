@@ -14,7 +14,7 @@ The NBA's constantly updated [API](http://data.nba.net/10s/prod/v1/today.json)
 
 [React Router](https://reacttraining.com/react-router/web/guides/philosophy) for application routing support.
 
-Kevin Pelton's (ESPN) NBA Draft [Trade Value Chart](http://www.espn.com/nba/insider/story/_/id/19658707/how-much-more-valuable-no-1-pick-trading-2017-nba-draft)
+Kevin Pelton's (ESPN) NBA Draft [Trade Value Chart](http://www.espn.com/nba/insider/story/_/id/19658707/how-much-more-valuable-no-1-pick-trading-2018-nba-draft)
 
 Brooklyn Nets news from [News API](https://newsapi.org/).
 
